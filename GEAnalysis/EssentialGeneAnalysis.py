@@ -20,4 +20,4 @@ class ComparisionModel:
         self.information = information
     def getData(self):
         return self.normalData
-class
+class WorkerBee:
