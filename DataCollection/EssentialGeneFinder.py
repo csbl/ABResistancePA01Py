@@ -5,6 +5,7 @@ import cobra.io
 from numpy import *
 import os
 from os.path import join
+from copy import deepcopy
 
 
 from bisect import bisect_left
@@ -31,9 +32,9 @@ def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=
 
         essGenes = sort(array(essGenes.index.tolist()))
 
-        EssGeneDataCollection = EssGeneDataCollection + ['\n' + assent + str(x) + '\n-----------------------\n'] +  essGenes.tolist()
+        EssGeneDataCollection = EssGeneDataCollection + ['\n-----------------------\n'+ assent+'_'+str(x)] +  essGenes.tolist()
 
-    newFile = open(('EssGene'+assent[:-1]+'.txt'),'w')
+    newFile = open(('EssGene'+assent+'.txt'),'w')
 
     [newFile.write('\n'+x) for x in EssGeneDataCollection]
 
@@ -42,7 +43,7 @@ def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=
 def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
     res = cobra.flux_analysis.single_gene_deletion(model)
-    essential = res['flux'] == 0
+    essential = res['flux'] <= 0.001
     essGenes = res[essential]
     essGenes = sort(array(essGenes.index.tolist()))
     newFile = open(('EssGene' + label + '.txt'), 'w')
@@ -65,27 +66,32 @@ class ComparisionGene:
         for x in self.normalData:
             if x == '\n' or x.startswith('-') == 1:
                 self.normalData.remove(x)
+            else:
+                self.normalData[self.normalData.index(x)] = self.normalData[self.normalData.index(x)][:-1]
         self.normalFile.close()
         self.information = information
+        self.normalFile.close()
     def getData(self):
         return self.normalData
-class CSComparisionGene:
-    def __init__(self,assention,controlIndex,information):
+class CSGene:
+    def __init__(self,assention,information='NO INFORMATION'):
         self.assention = assention
         self.information = information
         self.file = open('EssGene'+assention+'.txt','r')
         self.dataTot = self.file.readlines()
         self.sampleData = []
-        self.controlIndex = controlIndex
-        tempData = []
+        self.tempData = []
+        print self.dataTot
         for x in self.dataTot:
             if x == '\n':
                 self.dataTot.remove(x)
-            elif x.startswith('G') == 1:
-                tempData.append(x)
-            elif x.startswith('-') == 1:
-                self.sampleData.append(tempData)
-                tempData = []
+            elif x == '-----------------------\n':
+                print "append to smap"
+                self.sampleData.append(self.tempData)
+               # print 'I am appending to sampleData'
+                self.tempData = []
             else:
-                tempData.append(x[:-1])
-        self.sampleData = {x[0]:x[1:] for x in self.sampleData}
+                self.tempData.append(x[:-1])
+        print self.sampleData
+        self.sampleEG = {x[0]:x[1:] for x in self.sampleData}
+        self.file.close()
