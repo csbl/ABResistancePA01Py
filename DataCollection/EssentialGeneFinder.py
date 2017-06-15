@@ -17,7 +17,7 @@ def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
 def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=None,solver='gurobi'):
     EssGeneDataCollection = []
     for x in [x+1 for x in range(numSamples)]:
-        fileName = join(path,assent + str(x) + modelType)
+        fileName = join(path,assent+ '_' + str(x) + modelType)
 
         CSmodel = cobra.io.load_matlab_model(fileName)
 
@@ -56,8 +56,36 @@ class GeneHits:
        # self.index = name[:6]
     def addToCount(self):
         self.count = self.count + 1
-    def letsPring(self):
+    def letsPrint(self):
         print self.name + ': %d' % self.count
-class ComparisionModel:
-    def __init__(self,label,):
-        self.label = label
+class ComparisionGene:
+    def __init__(self,label,information):
+        self.normalFile = open('EssGene'+label+'.txt', 'r')
+        self.normalData = self.normalFile.readlines()
+        for x in self.normalData:
+            if x == '\n' or x.startswith('-') == 1:
+                self.normalData.remove(x)
+        self.normalFile.close()
+        self.information = information
+    def getData(self):
+        return self.normalData
+class CSComparisionGene:
+    def __init__(self,assention,controlIndex,information):
+        self.assention = assention
+        self.information = information
+        self.file = open('EssGene'+assention+'.txt','r')
+        self.dataTot = self.file.readlines()
+        self.sampleData = []
+        self.controlIndex = controlIndex
+        tempData = []
+        for x in self.dataTot:
+            if x == '\n':
+                self.dataTot.remove(x)
+            elif x.startswith('G') == 1:
+                tempData.append(x)
+            elif x.startswith('-') == 1:
+                self.sampleData.append(tempData)
+                tempData = []
+            else:
+                tempData.append(x[:-1])
+        self.sampleData = {x[0]:x[1:] for x in self.sampleData}
