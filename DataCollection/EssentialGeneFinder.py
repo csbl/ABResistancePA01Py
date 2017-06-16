@@ -129,11 +129,11 @@ class CSGene:
         i = 0
         for x in self.sampleEG:
             unique = list(set(geneTot) -  set(self.sampleEG[x]))
-            uniqueGene.append([x,unique])
+            uniqueGene.append([x,unique[:]])
             if self.control[i] == 1:
-                controlUnique.append([x,unique])
+                controlUnique.append([x,unique[:]])
             else:
-                experimentalUnique.append([x,unique])
+                experimentalUnique.append([x,unique[:]])
             i+=1
         totalUnique = {x[0]:x[1:][0] for x in uniqueGene}
         controlUnique = {x[0]:x[1:][0] for x in controlUnique}

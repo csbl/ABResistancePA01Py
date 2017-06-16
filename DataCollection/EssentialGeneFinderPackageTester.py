@@ -30,15 +30,12 @@ for x in reference:
 
 
 uniqueData = []
-print normal.getData()
 
 for x in CSD:
     temp,_,_ = x.findUniqueFrom(normal.getData())
     uniqueData.append(temp)
-    print temp
 pings = []
 count = 0
-
 
 for x in uniqueData:
     for r in x:
