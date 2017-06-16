@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/gurobi.log" afterPath="$PROJECT_DIR$/DataCollection/gurobi.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +25,7 @@
       <file leaf-file-name="GEDataAnalysisPrelim.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GEAnalysis/GEDataAnalysisPrelim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
+            <state relative-caret-position="1840">
               <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -31,8 +37,8 @@
       <file leaf-file-name="EssentialGeneFinder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4013">
-              <caret line="116" column="31" lean-forward="false" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+            <state relative-caret-position="-1255">
+              <caret line="83" column="30" lean-forward="true" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -43,8 +49,8 @@
       <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+            <state relative-caret-position="945">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -53,7 +59,7 @@
       <file leaf-file-name="EssGeneGDS3572.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4214">
+            <state relative-caret-position="12801">
               <caret line="585" column="6" lean-forward="true" selection-start-line="585" selection-start-column="6" selection-end-line="585" selection-end-column="6" />
               <folding />
             </state>
@@ -420,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497570934164</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="FindUniqueFrom is now working, still working on getting findUnique from control">
+      <created>1497633376182</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1497633376182</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -444,7 +457,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.234375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.5052083" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.49479166" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.49479166" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -468,7 +481,8 @@
     <MESSAGE value="working" />
     <MESSAGE value="updated geneEssData reorganized directory" />
     <MESSAGE value="still not working. Method to create essential genes for accension data" />
-    <option name="LAST_COMMIT_MESSAGE" value="still not working. Method to create essential genes for accension data" />
+    <MESSAGE value="FindUniqueFrom is now working, still working on getting findUnique from control" />
+    <option name="LAST_COMMIT_MESSAGE" value="FindUniqueFrom is now working, still working on getting findUnique from control" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -726,9 +740,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GEAnalysis/EssentialGeneAnalysis.py" />
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12801">
+          <caret line="585" column="6" lean-forward="true" selection-start-line="585" selection-start-column="6" selection-end-line="585" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GEAnalysis/GEDataAnalysisPrelim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
+        <state relative-caret-position="1840">
           <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -736,26 +758,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4214">
-          <caret line="585" column="6" lean-forward="true" selection-start-line="585" selection-start-column="6" selection-end-line="585" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+        <state relative-caret-position="945">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4013">
-          <caret line="116" column="31" lean-forward="false" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+        <state relative-caret-position="-1255">
+          <caret line="83" column="30" lean-forward="true" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

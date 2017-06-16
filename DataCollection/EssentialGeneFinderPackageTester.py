@@ -12,12 +12,14 @@ def creationOfEssentialGeneData():
        # createEssentialGeneModel(model,'IPAE1146')
 
 
+#creationOfEssentialGeneData()
 
 normal = ComparisionGene('IPAE1146','This is a test')
 
 
-test = CSGene('GDS3572',[0,0,0,1,1,1],'MHB')
+test = CSGene('GSE90620',[1,1,1,0,0,0,0,0,0,0,0,0],'LB')
 test.processSamples()
 #print test.sampleEG
 #print test.findUniqueFrom(normal.getData())
 print test.findUniqueFromControl()
+
