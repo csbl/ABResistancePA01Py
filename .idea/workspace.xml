@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/gurobi.log" afterPath="$PROJECT_DIR$/DataCollection/gurobi.log" />
     </list>
@@ -18,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="EssentialGeneFinder.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EssentialGeneFinder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="131" column="41" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
+            <state relative-caret-position="382">
+              <caret line="130" column="31" lean-forward="false" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -30,34 +28,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EssGeneIPAE1146.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3014">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="-335">
+              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EssGeneGDS3572.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18054">
-              <caret line="242" column="6" lean-forward="false" selection-start-line="242" selection-start-column="6" selection-end-line="242" selection-end-column="6" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -450,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497649063790</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="worked! and then stopped working. Was backwards operation on the sets. Oh well">
+      <created>1497650537409</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1497650537409</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -502,7 +487,8 @@
     <MESSAGE value="Think basic package is developed, now to test" />
     <MESSAGE value="eliminated the bugs causing PA0025 to have the new line character. Liberly used try-except statement" />
     <MESSAGE value="fixed a few bugs, still having issues getting only spont. as the unique gene" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed a few bugs, still having issues getting only spont. as the unique gene" />
+    <MESSAGE value="worked! and then stopped working. Was backwards operation on the sets. Oh well" />
+    <option name="LAST_COMMIT_MESSAGE" value="worked! and then stopped working. Was backwards operation on the sets. Oh well" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -762,7 +748,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18054">
+        <state relative-caret-position="-17814">
           <caret line="242" column="6" lean-forward="false" selection-start-line="242" selection-start-column="6" selection-end-line="242" selection-end-column="6" />
           <folding />
         </state>
@@ -770,28 +756,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3014">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        <state relative-caret-position="382">
+          <caret line="130" column="31" lean-forward="false" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="131" column="41" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
+        <state relative-caret-position="-335">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

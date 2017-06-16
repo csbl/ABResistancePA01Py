@@ -29,13 +29,13 @@ CSD = []
 for x in reference:
     temp = CSGene(x,reference[x])
     temp.processSamples()
-    CSD.append(deepcopy(temp))
+    CSD.append(temp)
 
 uniqueData = []
 
 for x in CSD:
     temp,_,_ = x.findUniqueFrom(normal.getData())
-    uniqueData.append(deepcopy(temp))
+    uniqueData.append(temp)
 pings = []
 count = 0
 
