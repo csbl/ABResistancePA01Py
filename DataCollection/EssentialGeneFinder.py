@@ -59,11 +59,13 @@ class ComparisionGene:
     def __init__(self,label,information):
         self.normalFile = open('EssGene'+label+'.txt', 'r')
         self.normalData = self.normalFile.readlines()
-        for x in self.normalData:
-            if x == '\n' or x.startswith('-') == 1:
-                self.normalData.remove(x)
-            else:
-                self.normalData[self.normalData.index(x)] = self.normalData[self.normalData.index(x)][:-1]
+        try:
+            while(True):
+                self.normalData.remove('\n')
+        except:
+            pass
+        for x in range(len(self.normalData)):
+                self.normalData[x] = self.normalData[x][:-1]
         self.normalFile.close()
         self.information = information
         self.normalFile.close()
@@ -83,11 +85,13 @@ class CSGene:
         self.dataTot = self.file.readlines()
         self.control = control
         self.media = media
-        for x in self.dataTot:
-            if x == '\n':
-                self.dataTot.remove(x)
-            else:
-                self.dataTot[self.dataTot.index(x)] = self.dataTot[self.dataTot.index(x)][:-1]
+        try:
+            while(True):
+                self.dataTot.remove('\n')
+        except:
+            pass
+        for x in range(len(self.dataTot)):
+            self.dataTot[x] = self.dataTot[x][:-1]
         self.file.close()
     def processSamples(self):
         self.sampleEG = []
@@ -127,13 +131,13 @@ class CSGene:
             unique = list(set(geneTot) -  set(self.sampleEG[x]))
             uniqueGene.append([x,unique])
             if self.control[i] == 1:
-                controlUnique.append[x,unique]
+                controlUnique.append([x,unique])
             else:
-                experimentalUnique.append(x,unique)
+                experimentalUnique.append([x,unique])
             i+=1
-        totalUnique = {x[0]:x[1:] for x in uniqueGene}
-        controlUnique = {x[0]:x[1:] for x in controlUnique}
-        experimentalUnique = {x[0]:x[1:] for x in experimentalUnique}
+        totalUnique = {x[0]:x[1:][0] for x in uniqueGene}
+        controlUnique = {x[0]:x[1:][0] for x in controlUnique}
+        experimentalUnique = {x[0]:x[1:][0] for x in experimentalUnique}
         return totalUnique,controlUnique,experimentalUnique
 
     def findUniqueFromControl(self):

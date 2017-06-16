@@ -50,22 +50,22 @@ for x in data:
 pings = []
 count = 0
 
-
 for x in uniqueData:
     for g in x:
-        count = 0
-        if len(pings) == 0:
-            pings = [geneHits(g)]
-        else:
-            for j in pings:
-                if j.name == g:
-                    count = count + 1
-            if count ==0:
-                pings.append(geneHits(g))
+        for r in x[g]:
+            count = 0
+            if len(pings) == 0:
+                pings = [geneHits(g)]
             else:
                 for j in pings:
                     if j.name == g:
-                        j.addToCount()
+                        count = count + 1
+                if count ==0:
+                    pings.append(geneHits(g))
+                else:
+                    for j in pings:
+                        if j.name == g:
+                            j.addToCount()
 
 [j.letsPring() for j in pings]
 
