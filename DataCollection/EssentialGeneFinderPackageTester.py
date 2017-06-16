@@ -15,6 +15,9 @@ def creationOfEssentialGeneData():
 
 #creationOfEssentialGeneData()
 
+#model = cobra.io.read_sbml_model("iPAE1146.xml")
+#createEssentialGeneModel(model,'IPAE1146')
+
 normal = ComparisionGene('IPAE1146','This is a test')
 
 
@@ -26,14 +29,13 @@ CSD = []
 for x in reference:
     temp = CSGene(x,reference[x])
     temp.processSamples()
-    CSD.append(temp)
-
+    CSD.append(deepcopy(temp))
 
 uniqueData = []
 
 for x in CSD:
     temp,_,_ = x.findUniqueFrom(normal.getData())
-    uniqueData.append(temp)
+    uniqueData.append(deepcopy(temp))
 pings = []
 count = 0
 

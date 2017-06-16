@@ -40,6 +40,7 @@ def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
     essGenes = sort(array(essGenes.index.tolist()))
     newFile = open(('EssGene' + label + '.txt'), 'w')
     [newFile.write('\n' + x) for x in essGenes]
+    newFile.write('\n')
     newFile.close()
     ##### Analysis Tools #########
 class GeneHits:
@@ -128,7 +129,7 @@ class CSGene:
         experimentalUnique = []
         i = 0
         for x in self.sampleEG:
-            unique = list(set(geneTot) -  set(self.sampleEG[x]))
+            unique = list(set(self.sampleEG[x])-set(geneTot))
             uniqueGene.append([x,unique[:]])
             if self.control[i] == 1:
                 controlUnique.append([x,unique[:]])
