@@ -74,24 +74,71 @@ class ComparisionGene:
     def getData(self):
         return self.normalData
 class CSGene:
-    def __init__(self,assention,information='NO INFORMATION'):
-        self.assention = assention
+    def __init__(self,accession,control,media,information='NO INFORMATION'):
+        self.accession = accession
         self.information = information
-        self.file = open('EssGene'+assention+'.txt','r')
+        self.file = open('EssGene'+self.accession+'.txt','r')
         self.dataTot = self.file.readlines()
-        self.sampleData = []
-        self.tempData = []
-        print self.dataTot
+        self.control = control
+        self.media = media
         for x in self.dataTot:
             if x == '\n':
                 self.dataTot.remove(x)
-            elif x == '-----------------------\n':
-                print "append to smap"
-                self.sampleData.append(self.tempData)
-               # print 'I am appending to sampleData'
-                self.tempData = []
             else:
-                self.tempData.append(x[:-1])
-        print self.sampleData
-        self.sampleEG = {x[0]:x[1:] for x in self.sampleData}
+                self.dataTot[self.dataTot.index(x)] = self.dataTot[self.dataTot.index(x)][:-1]
         self.file.close()
+    def processSamples(self):
+        self.sampleEG = []
+        tempData = []
+        for x in self.dataTot:
+            if x[0] == '-':
+                if len(self.sampleEG) == 0:
+                    self.sampleEG = [tempData]
+                else:
+                    self.sampleEG.append(tempData)
+                tempData = list()
+            else:
+                tempData.append(x)
+        self.sampleEG.remove([])
+        self.sampleEG = {x[0]:x[1:] for x in self.sampleEG}
+    def findUniqueFrom(self,geneTot):
+        uniqueGene = []
+        tempGene = []
+        for x in self.sampleEG:
+            unique = list(set(geneTot) -  set(self.sampleEG[x]))
+            uniqueGene.append([x,unique])
+        return {x[0]:x[1:] for x in uniqueGene}
+    def findUniqueFromControl(self):
+        if self.sampleEG == None:
+            print 'Error, samples must be processed my calling method: CSgene.processSamples'
+            return -1
+        else:
+            keys = []
+            print self.sampleEG
+            for i in range(len(self.control)):
+                if self.control[i] == 1:
+                    self.control[i] = i+1
+                    keys.append(self.accession+'_'+str(self.control[i]))
+            totList = []
+            [totList.append(self.sampleEG[x]) for x in keys]
+            totControl = list(set().union(*totList))
+
+            keys = []
+            for i in range(len(self.control)):
+                if self.control[i] == 0:
+                    self.control[i] = i+1
+                    keys.append(self.accession + '_' + str(self.control[i]))
+            totList = []
+            [totList.append(self.sampleEG[x]) for x in keys]
+            interExp = list(set().intersection(*totList)) #find genes that are common to all experimental sample essential genes
+
+            return list(set(interExp) - set(totControl)) #find members of the shared genes among the intersection that are not in the control genes
+
+
+
+
+
+
+
+
+
