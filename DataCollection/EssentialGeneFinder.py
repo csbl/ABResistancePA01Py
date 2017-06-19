@@ -35,12 +35,12 @@ def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=
 def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
     res = cobra.flux_analysis.single_gene_deletion(model)
-    essential = res['flux'] <= 0.001
+    essential = res['flux'] <= .001
     essGenes = res[essential]
     essGenes = sort(array(essGenes.index.tolist()))
     newFile = open(('EssGene' + label + '.txt'), 'w')
     [newFile.write('\n' + x) for x in essGenes]
-    newFile.write('\n')
+  #  newFile.write('\n')
     newFile.close()
     ##### Analysis Tools #########
 class GeneHits:
@@ -100,9 +100,9 @@ class CSGene:
         for x in self.dataTot:
             if x[0] == '-':
                 if len(self.sampleEG) == 0:
-                    self.sampleEG = [tempData[:]]
+                    self.sampleEG = [tempData]
                 else:
-                    self.sampleEG.append(tempData[:])
+                    self.sampleEG.append(tempData)
                 tempData = list()
             else:
                 tempData.append(x)
@@ -129,6 +129,8 @@ class CSGene:
         experimentalUnique = []
         i = 0
         for x in self.sampleEG:
+            print self.sampleEG
+            print geneTot
             unique = list(set(self.sampleEG[x])-set(geneTot))
             uniqueGene.append([x,unique[:]])
             if self.control[i] == 1:

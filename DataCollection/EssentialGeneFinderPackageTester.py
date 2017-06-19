@@ -15,8 +15,8 @@ def creationOfEssentialGeneData():
 
 #creationOfEssentialGeneData()
 
-#model = cobra.io.read_sbml_model("iPAE1146.xml")
-#createEssentialGeneModel(model,'IPAE1146')
+model = cobra.io.read_sbml_model("iPAE1146.xml")
+createEssentialGeneModel(model,'IPAE1146')
 
 normal = ComparisionGene('IPAE1146','This is a test')
 
@@ -36,8 +36,8 @@ uniqueData = list()
 for x in CSD:
     temp,c,b = x.findUniqueFrom(normal.getData())
     uniqueData.append(temp)
-pings = list()
-count = 0
+    pings = list()
+    count = 0
 
 for x in uniqueData:
     for r in x:
