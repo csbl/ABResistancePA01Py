@@ -15,32 +15,62 @@ def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
 
 def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=None,solver='gurobi'):
     essGeneDataCollection = []
+    newFile = open(('EssGene'+assent+'.txt'),'w')
     for x in [x+1 for x in range(numSamples)]:
         fileName = join(path,assent+ '_' + str(x) + modelType)
         CSmodel = cobra.io.load_matlab_model(fileName)
         CSmodel.solver = solver
         res = cobra.flux_analysis.single_gene_deletion(CSmodel)
-        essential = res['flux'] <= 0.001 #Handle numerical error
-        essGenes = res[essential]
-        essGenes = sort(array(essGenes.index.tolist()))
-        essGeneDataCollection = essGeneDataCollection + ['\n-----------------------\n'+ assent+'_'+str(x)] +  essGenes.tolist()
-    essGeneDataCollection = essGeneDataCollection + ['\n-----------------------\n']
+        res.sort_index()
+        results = []
+        for y in res.to_records(index=True):
+            results.append(tuple(y))
+        #max1 = max(res['flux'])
+        #essential = res['flux'] <  max1
+        #essential = res['flux'] <= 0.001 #Handle numerical error
+        #essGenes = res[essential]
+        #essGenes = sort(array(essGenes.index.tolist()))
+        #essGeneDataCollection = essGeneDataCollection + ['\n-----------------------\n'+ assent+'_'+str(x)] +  essGenes.tolist()
+        newFile.write('\n-----------------------\n'+ assent+'_'+str(x)+'\n')
+        [newFile.write(str(x[0]) + ' ' + str(x[1])+'\n') for x in results]
 
-    newFile = open(('EssGene'+assent+'.txt'),'w')
-
-    [newFile.write('\n'+x) for x in essGeneDataCollection]
-
+    newFile.write('\n-----------------------\n')
     newFile.close()
+
+def findNumberofHits(uniqueData):
+    pings = []
+    for x in uniqueData:
+        for r in x:
+            for g in x[r]:
+                count = 0
+                if len(pings) == 0:
+                    pings = [GeneHits(g)]
+                else:
+                    for j in pings:
+                        if j.name == g:
+                            count = count + 1
+                    if count == 0:
+                        pings.append(GeneHits(g))
+                    else:
+                        for j in pings:
+                            if j.name == g:
+                                j.addToCount()
+    return pings
 
 def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
     res = cobra.flux_analysis.single_gene_deletion(model)
-    essential = res['flux'] <= .001
-    essGenes = res[essential]
-    essGenes = sort(array(essGenes.index.tolist()))
+    #max1 = max(res['flux'])
+    #essential = res['flux'] <  max1
+    #essGenes = res[essential]
+    #essGenes = sort(array(essGenes.index.tolist()))
     newFile = open(('EssGene' + label + '.txt'), 'w')
-    [newFile.write('\n' + x) for x in essGenes]
-  #  newFile.write('\n')
+    res.sort_index()
+    results = []
+    for x in res.to_records(index=True):
+        results.append(tuple(x))
+    [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results]
+    newFile.write('\n')
     newFile.close()
     ##### Analysis Tools #########
 class GeneHits:
@@ -129,8 +159,6 @@ class CSGene:
         experimentalUnique = []
         i = 0
         for x in self.sampleEG:
-            print self.sampleEG
-            print geneTot
             unique = list(set(self.sampleEG[x])-set(geneTot))
             uniqueGene.append([x,unique[:]])
             if self.control[i] == 1:

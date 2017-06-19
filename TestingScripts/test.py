@@ -3,27 +3,22 @@
 import cobra
 import os
 from os.path import join
-import cobra.test
-data_dir = cobra.test.data_dir
 import cobra.flux_analysis
 import cobra.solvers.gurobi_solver
-import matplotlib
-import numpy
-import matlab.engine
-import matlab
 
-
-eng = matlab.engine.start_matlab()
 
 
 #model = cobra.test.create_test_model("textbook")
 #model = cobra.io.read_sbml_model(join(data_dir,"iPAE1146.xml")) #load model
 model = cobra.io.read_sbml_model("iPAE1146.xml")
 solution = model.optimize() #optimize
-#print(solution)
+print(solution)
 
-print data_dir
+print model.summary()
 
+sol = cobra.flux_analysis.single_gene_deletion(model)
+sol = sol[sol['flux'] > 1]
+print sol[sol['flux'] < 15.5]
 #geneExpression = eng.testRun()
 
 #tissueModel = eng.testTissueModel()
