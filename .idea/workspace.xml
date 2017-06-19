@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestingScripts/iPAE1146.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/gurobi.log" afterPath="$PROJECT_DIR$/DataCollection/gurobi.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestingScripts/test.py" afterPath="$PROJECT_DIR$/TestingScripts/test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +18,8 @@
       <file leaf-file-name="EssentialGeneFinder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="480">
+              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -97,6 +87,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -530,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497878318594</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changed the file creation structure to include the flux for every reaction. Now to change algorithims to find what is different">
+      <created>1497887518236</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1497887518236</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -615,7 +617,8 @@
     <MESSAGE value="recreate gene files. No difference, the bug must be in the findUniqueFrom method, but I dont know what I changed." />
     <MESSAGE value="tried to find bug. No luck, going back to previous version now" />
     <MESSAGE value="Found the bug. The preliminary essential gene variants that I found were only due to numerical round off errors that were found before I changed the threshold from .0 to .001. Now, I am changing the algorithim to find the genes that change that hit more than half of the biomass." />
-    <option name="LAST_COMMIT_MESSAGE" value="Found the bug. The preliminary essential gene variants that I found were only due to numerical round off errors that were found before I changed the threshold from .0 to .001. Now, I am changing the algorithim to find the genes that change that hit more than half of the biomass." />
+    <MESSAGE value="Changed the file creation structure to include the flux for every reaction. Now to change algorithims to find what is different" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the file creation structure to include the flux for every reaction. Now to change algorithims to find what is different" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -899,8 +902,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        <state relative-caret-position="480">
+          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

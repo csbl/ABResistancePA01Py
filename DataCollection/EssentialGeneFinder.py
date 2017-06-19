@@ -14,7 +14,7 @@ def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
     return (pos if pos != hi and a[pos] == x else -1)  # don't walk off the end  #https://stackoverflow.com/questions/212358/binary-search-bisection-in-python
 
 def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=None,solver='gurobi'):
-    essGeneDataCollection = []
+    #essGeneDataCollection = []
     newFile = open(('EssGene'+assent+'.txt'),'w')
     for x in [x+1 for x in range(numSamples)]:
         fileName = join(path,assent+ '_' + str(x) + modelType)
