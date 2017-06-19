@@ -100,9 +100,9 @@ class CSGene:
         for x in self.dataTot:
             if x[0] == '-':
                 if len(self.sampleEG) == 0:
-                    self.sampleEG = [tempData]
+                    self.sampleEG = [tempData[:]]
                 else:
-                    self.sampleEG.append(tempData)
+                    self.sampleEG.append(tempData[:])
                 tempData = list()
             else:
                 tempData.append(x)

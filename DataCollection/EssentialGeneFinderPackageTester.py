@@ -31,12 +31,12 @@ for x in reference:
     temp.processSamples()
     CSD.append(temp)
 
-uniqueData = []
+uniqueData = list()
 
 for x in CSD:
-    temp,_,_ = x.findUniqueFrom(normal.getData())
+    temp,c,b = x.findUniqueFrom(normal.getData())
     uniqueData.append(temp)
-pings = []
+pings = list()
 count = 0
 
 for x in uniqueData:
