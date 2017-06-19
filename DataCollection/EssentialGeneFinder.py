@@ -82,7 +82,7 @@ class GeneHits:
     def addToCount(self):
         self.count = self.count + 1
     def letsPrint(self):
-        print self.name + ': %d' % self.count + '; mean: %lf ; std: %lf ; sum: %lf'  %(mean(self.differences),std(self.differences),sum(self.differences))
+        print self.name + ': %d' % self.count + '; mean: %lf ; std: %lf ; sum: %lf'  %(mean(self.differences),std(self.differences),sum([abs(x) for x in self.differences]))
     def areEqual(self,x):
         if x.name == self.name:
             return 1
@@ -193,19 +193,21 @@ class CSGene:
 
     def findChangedFluxGenes(self,generalGene):
         results = []
-        for x in self.sampleEG:
-            for y in self.sampleEG[x]:
-                if not(self.sampleEG[x][y] - generalGene[y] ==  0):
+        data = self.sampleEG
+
+        for x in data:
+            for y in data[x]:
+                if not(data[x][y] == generalGene[y]):
                     if len(results) == 0:
-                        results.append(GeneHits(self.sampleEG[x][y] - generalGene[y],y))
+                        results.append(GeneHits(data[x][y] - generalGene[y],y))
                     else:
                         count = 0
                         for z in results:
                             if z.name == y:
-                                z.combine(GeneHits(self.sampleEG[x][y] - generalGene[y],y))
+                                z.combine(GeneHits(data[x][y] - generalGene[y],y))
                                 count +=1
                         if count == 0:
-                            results.append(GeneHits(self.sampleEG[x][y] - generalGene[y],y))
+                            results.append(GeneHits(data[x][y] - generalGene[y],y))
         return results
 
 
