@@ -13,7 +13,7 @@ def creationOfEssentialGeneData():
        # createEssentialGeneModel(model,'IPAE1146')
 
 
-#creationOfEssentialGeneData()
+creationOfEssentialGeneData()
 
 #model = cobra.io.read_sbml_model("iPAE1146.xml")
 #createEssentialGeneModel(model,'IPAE1146')

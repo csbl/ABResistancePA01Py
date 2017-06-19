@@ -72,6 +72,13 @@ def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
     [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results]
     newFile.write('\n')
     newFile.close()
+def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
+    model.solver = solver
+    res = cobra.flux_analysis.double_gene_deletion(model)
+    newFile = open(('EssGene'+label+'.txt'),'w')
+    res.sort_index()
+    results = []
+
     ##### Analysis Tools #########
 class GeneHits:
     def __init__(self , differeneces,  name):

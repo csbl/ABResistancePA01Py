@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" />
@@ -25,8 +26,20 @@
       <file leaf-file-name="EssentialGeneFinder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-535">
-              <caret line="84" column="152" lean-forward="false" selection-start-line="84" selection-start-column="152" selection-end-line="84" selection-end-column="152" />
+            <state relative-caret-position="320">
+              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="79" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doubleDeletionWorkbook.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -37,7 +50,7 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestingScripts/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
+            <state relative-caret-position="640">
               <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding>
                 <element signature="e#2#14#0" expanded="true" />
@@ -46,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EssGeneGDS3572.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EssGeneGDS3572.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
+            <state relative-caret-position="36240">
               <caret line="906" column="1" lean-forward="false" selection-start-line="906" selection-start-column="1" selection-end-line="906" selection-end-column="1" />
               <folding />
             </state>
@@ -59,8 +72,8 @@
       <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+            <state relative-caret-position="360">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -71,8 +84,8 @@
       <file leaf-file-name="EssGeneGSE90620.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="913" column="2" lean-forward="true" selection-start-line="913" selection-start-column="2" selection-end-line="913" selection-end-column="2" />
+            <state relative-caret-position="36520">
+              <caret line="913" column="2" lean-forward="false" selection-start-line="913" selection-start-column="2" selection-end-line="913" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -81,8 +94,8 @@
       <file leaf-file-name="EssGeneIPAE1146.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29509">
-              <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state relative-caret-position="360">
+              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -100,6 +113,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>set</find>
+      <find>self.sampleEG</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,6 +144,7 @@
         <option value="$PROJECT_DIR$/TestingScripts/test.py" />
         <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
         <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" />
+        <option value="$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py" />
       </list>
     </option>
   </component>
@@ -155,6 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -225,8 +242,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,7 +276,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.EssentialGeneFinderPackageTester">
+  <component name="RunManager" selected="Python.doubleDeletionWorkbook">
     <configuration default="false" name="GEDataAnalysisPrelim" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -275,24 +290,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="GeneEssentialityPythonScripts" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GEAnalysis/GEDataAnalysisPrelim.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ExampleGeneFind (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataCollection" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="GeneEssentialityPythonScripts" />
-      <option name="SCRIPT_NAME" value="C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPyPA01\OldScripts\ExampleGeneFind.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -345,6 +342,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="GeneEssentialityPyPA01" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestingScripts/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="doubleDeletionWorkbook" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataCollection" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GeneEssentialityPyPA01" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -432,18 +447,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.GEDataAnalysisPrelim" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ExampleGeneFind (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python.GEDataAnalysisPrelim" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ExampleGeneFind (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
+        <item index="1" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python.GEDataAnalysisPrelim" />
       </list>
     </recent_temporary>
   </component>
@@ -556,7 +571,21 @@
       <option name="project" value="LOCAL" />
       <updated>1497887665059</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Have the API working for finding the changes in the gene expression levels">
+      <created>1497899376054</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1497899376054</updated>
+    </task>
+    <task id="LOCAL-00016" summary="code is working to find the variation. However the results are not significant">
+      <created>1497900296609</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1497900296610</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -643,20 +672,15 @@
     <MESSAGE value="Found the bug. The preliminary essential gene variants that I found were only due to numerical round off errors that were found before I changed the threshold from .0 to .001. Now, I am changing the algorithim to find the genes that change that hit more than half of the biomass." />
     <MESSAGE value="Changed the file creation structure to include the flux for every reaction. Now to change algorithims to find what is different" />
     <MESSAGE value="added brach" />
-    <option name="LAST_COMMIT_MESSAGE" value="added brach" />
+    <MESSAGE value="Have the API working for finding the changes in the gene expression levels" />
+    <MESSAGE value="code is working to find the variation. However the results are not significant" />
+    <option name="LAST_COMMIT_MESSAGE" value="code is working to find the variation. However the results are not significant" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/OldScripts/ExampleGeneFind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GEAnalysis/GEDataAnalysisPrelim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -861,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,13 +899,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1920">
           <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36520">
+          <caret line="913" column="2" lean-forward="false" selection-start-line="913" selection-start-column="2" selection-end-line="913" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36240">
+          <caret line="906" column="1" lean-forward="false" selection-start-line="906" selection-start-column="1" selection-end-line="906" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestingScripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
+        <state relative-caret-position="640">
           <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
             <element signature="e#2#14#0" expanded="true" />
@@ -891,47 +936,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-535">
-          <caret line="84" column="152" lean-forward="false" selection-start-line="84" selection-start-column="152" selection-end-line="84" selection-end-column="152" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29509">
-          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="913" column="2" lean-forward="true" selection-start-line="913" selection-start-column="2" selection-end-line="913" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+        <state relative-caret-position="360">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="906" column="1" lean-forward="false" selection-start-line="906" selection-start-column="1" selection-end-line="906" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="320">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="79" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
