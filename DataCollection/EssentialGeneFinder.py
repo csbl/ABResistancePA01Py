@@ -74,14 +74,23 @@ def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
     newFile.close()
     ##### Analysis Tools #########
 class GeneHits:
-    def __init__(self , name):
+    def __init__(self , differeneces,  name):
         self.name = name
         self.count = 1
+        self.differences = [differeneces]
        # self.index = name[:6]
     def addToCount(self):
         self.count = self.count + 1
     def letsPrint(self):
-        print self.name + ': %d' % self.count
+        print self.name + ': %d' % self.count + '; mean: %lf ; std: %lf ; sum: %lf'  %(mean(self.differences),std(self.differences),sum(self.differences))
+    def areEqual(self,x):
+        if x.name == self.name:
+            return 1
+        else:
+            return 0
+    def combine(self,x):
+        self.addToCount()
+        self.differences = self.differences + x.differences
 
 #
 #Class for the characterization of essential genes for a general metabolic model. Processes the data in the EssGene file.
@@ -97,6 +106,8 @@ class ComparisionGene:
             pass
         for x in range(len(self.normalData)):
                 self.normalData[x] = self.normalData[x][:-1]
+        self.normalData = [x.split(" ") for x in self.normalData]
+        self.normalData = {x[0]:float(x[1]) for x in self.normalData}
         self.normalFile.close()
         self.information = information
         self.normalFile.close()
@@ -132,25 +143,34 @@ class CSGene:
                 if len(self.sampleEG) == 0:
                     self.sampleEG = [tempData]
                 else:
-                    self.sampleEG.append(tempData)
+                    tempData2 = [tempData[0]]
+                    for y in [x+1 for x in range(len(tempData)-1)]:
+                        spliter = tempData[y].split(" ")
+                        tempData2.append([spliter[0],float(spliter[1])])
+                    self.sampleEG.append(tempData2)
                 tempData = list()
             else:
                 tempData.append(x)
         self.sampleEG.remove([])
         self.sampleEG = {x[0]:x[1:] for x in self.sampleEG}
+        for x in self.sampleEG:
+            self.sampleEG[x] = {y[0]:y[1] for y in self.sampleEG[x]}
         keysC = []
         keysE = []
+
         for i in range(len(self.control)):
             if self.control[i] == 1:
                 keysC.append(self.accession + '_' + str(i+1))
             else:
                 keysE.append(self.accession+'_'+str(i+1))
-        totList = []
-        [totList.append(set(self.sampleEG[x])) for x in keysC]
-        self.controlData = [list(x) for x in totList[:]]
-        totList = list()
-        [totList.append(set(self.sampleEG[x])) for x in keysE]
-        self.experimentalData = [list(x) for x in totList[:]]
+        #totList =[]
+        #[totList.append(set(self.sampleEG[x])) for x in keysC]
+        #self.controlData = [list(x) for x in totList[:]]
+        #totList = list()
+        #[totList.append(set(self.sampleEG[x])) for x in keysE]
+        #self.experimentalData = [list(x) for x in totList[:]]
+        self.controlData = [self.sampleEG[x] for x in keysC] #TODO need to handle all control or all experimental samples (index out of bounds)
+        self.experimentalData = [self.sampleEG[x] for x in keysE]
 
 
     def findUniqueFrom(self,geneTot):
@@ -170,6 +190,24 @@ class CSGene:
         controlUnique = {x[0]:x[1:][0] for x in controlUnique}
         experimentalUnique = {x[0]:x[1:][0] for x in experimentalUnique}
         return totalUnique,controlUnique,experimentalUnique
+
+    def findChangedFluxGenes(self,generalGene):
+        results = []
+        for x in self.sampleEG:
+            for y in self.sampleEG[x]:
+                if not(self.sampleEG[x][y] - generalGene[y] ==  0):
+                    if len(results) == 0:
+                        results.append(GeneHits(self.sampleEG[x][y] - generalGene[y],y))
+                    else:
+                        count = 0
+                        for z in results:
+                            if z.name == y:
+                                z.combine(GeneHits(self.sampleEG[x][y] - generalGene[y],y))
+                                count +=1
+                        if count == 0:
+                            results.append(GeneHits(self.sampleEG[x][y] - generalGene[y],y))
+        return results
+
 
     def findUniqueFromControl(self):
         try:
