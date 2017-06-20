@@ -5,39 +5,47 @@ import cobra.io
 from numpy import *
 from os.path import join
 from scipy.stats import *
-
-
 from bisect import bisect_left
-######Essential Gene Discovery Tools#########
+
+
+
+
+######Essential Gene Discovery Functions#########
 def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
     hi = hi if hi is not None else len(a)  # hi defaults to len(a)
     pos = bisect_left(a, x, lo, hi)  # find insertion position
     return (pos if pos != hi and a[pos] == x else -1)  # don't walk off the end  #https://stackoverflow.com/questions/212358/binary-search-bisection-in-python
+"""
+Creates Essential Gene Data for CS models. Saves the results as a text file named EssGeneACCESSIONNUMBER_SAMPLENUMBER.txt with the 
+deleted gene name in the first column and the flux through biomass on the second column
 
+Inputs: assent - GEO accession number that corressponds to the name on the .mat file
+modelType - (optional) type of model file to be read (now only supports .mat)
+numSamples - # of samples that correspond to the accession number
+path - File path for location of the .mat models
+solver - optimizer to be used for doing the simulation 'gurobi is the default'
+
+Outputs: None
+"""
 def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=None,solver='gurobi'):
-    #essGeneDataCollection = []
     newFile = open(('EssGene'+assent+'.txt'),'w')
     for x in [x+1 for x in range(numSamples)]:
         fileName = join(path,assent+ '_' + str(x) + modelType)
         CSmodel = cobra.io.load_matlab_model(fileName)
-        CSmodel.solver = solver
-        res = cobra.flux_analysis.single_gene_deletion(CSmodel)
-        res.sort_index()
+        CSmodel.solver = solver   #load model
+        res = cobra.flux_analysis.single_gene_deletion(CSmodel) #perform single gene deletion simulation
+        res.sort_index()  #sort the results of the simulation
         results = []
         for y in res.to_records(index=True):
-            results.append(tuple(y))
-        #max1 = max(res['flux'])
-        #essential = res['flux'] <  max1
-        #essential = res['flux'] <= 0.001 #Handle numerical error
-        #essGenes = res[essential]
-        #essGenes = sort(array(essGenes.index.tolist()))
-        #essGeneDataCollection = essGeneDataCollection + ['\n-----------------------\n'+ assent+'_'+str(x)] +  essGenes.tolist()
-        newFile.write('\n-----------------------\n'+ assent+'_'+str(x)+'\n')
-        [newFile.write(str(x[0]) + ' ' + str(x[1])+'\n') for x in results]
+            results.append(tuple(y)) #gather geneName,flux tuples
+        newFile.write('\n-----------------------\n'+ assent+'_'+str(x)+'\n')#write sample label
+        [newFile.write(str(x[0]) + ' ' + str(x[1])+'\n') for x in results] #write results to file
 
-    newFile.write('\n-----------------------\n')
+    newFile.write('\n-----------------------\n')#write final marker
     newFile.close()
 
+"""
+No longer functional. Original Purpose is to find the number of changed genes given a set of unique genes. Not compatable with flux variatios=ns
 def findNumberofHits(uniqueData):
     pings = []
     for x in uniqueData:
@@ -58,37 +66,48 @@ def findNumberofHits(uniqueData):
                                 j.addToCount()
     return pings
 
-def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
+"""
+
+
+"""
+Function that calculates the results of a single deletion simulation for a cobra model. Creates a text file in the same format as above.
+Inputs: model - cobra model for which the simulation should be performed
+label - label for the resulting file output i.e. EssGeneLABEL.txt
+solver - solver for use in simulation default is gurobi
+"""
+def createEssentialGeneModel(model,label,solver = 'gurobi'):
     model.solver = solver
-    res = cobra.flux_analysis.single_gene_deletion(model)
-    #max1 = max(res['flux'])
-    #essential = res['flux'] <  max1
-    #essGenes = res[essential]
-    #essGenes = sort(array(essGenes.index.tolist()))
+    res = cobra.flux_analysis.single_gene_deletion(model)#perform simulation
     newFile = open(('EssGene' + label + '.txt'), 'w')
     res.sort_index()
     results = []
     for x in res.to_records(index=True):
-        results.append(tuple(x))
-    [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results]
+        results.append(tuple(x)) #gather geneName flux level tuple
+    [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results] #write results
     newFile.write('\n')
     newFile.close()
+
+"""   
 def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
     res = cobra.flux_analysis.double_gene_deletion(model)
     newFile = open(('EssGene'+label+'.txt'),'w')
     res.sort_index()
     results = []
+"""
 
     ##### Analysis Tools #########
+"""   
+Class the handles the information from simulation results. Organizes flux levels for a series of hits. Allows for consolidated information and output
+"""
 class GeneHits:
-    def __init__(self , differeneces,  name):
+    def __init__(self , differences,  name):
         self.name = name
         self.count = 1
-        self.differences = [differeneces]
-       # self.index = name[:6]
+        self.differences = [differences]
     def addToCount(self):
         self.count = self.count + 1
+    """ Returns a formatted string containing the name of the gene, number of hits, mean, std, sum, and pvalue using one sample t test"""
     def letsPrint(self):
         if len(self.differences) > 1 and not(mean(self.differences) == 0.0):    #TODO add in null data to the differences array to show more accurate statistic; multiply by control coeff pad with 0
             _,pval = ttest_1samp(self.differences,0.0)
@@ -100,37 +119,38 @@ class GeneHits:
             return 1
         else:
             return 0
+    """Combines two GeneHits objects"""
     def combine(self,x):
         self.addToCount()
         self.differences = self.differences + x.differences
 
-#
-#Class for the characterization of essential genes for a general metabolic model. Processes the data in the EssGene file.
-#
+"""
+Class for the characterization of essential genes for a general metabolic model. Processes the data in the EssGene file. 
+Data is acessible through the getData() function wher the genes and corresponding fluxes are stored as a dictionary
+"""
 class ComparisionGene:
     def __init__(self,label,information):
         self.normalFile = open('EssGene'+label+'.txt', 'r')
         self.normalData = self.normalFile.readlines()
         try:
             while(True):
-                self.normalData.remove('\n')
+                self.normalData.remove('\n') #clean up file
         except:
             pass
         for x in range(len(self.normalData)):
-                self.normalData[x] = self.normalData[x][:-1]
-        self.normalData = [x.split(" ") for x in self.normalData]
-        self.normalData = {x[0]:float(x[1]) for x in self.normalData}
+                self.normalData[x] = self.normalData[x][:-1] #remove final characters
+        self.normalData = [x.split(" ") for x in self.normalData]#separate name and values
+        self.normalData = {x[0]:float(x[1]) for x in self.normalData}#creat dictionary
         self.normalFile.close()
-        self.information = information
+        self.information = information #stores other string information that corresponds to the general model.
         self.normalFile.close()
     def getData(self):
         return self.normalData
+"""
+#Class for comparision and analysis of essential gene data from a context specific model. Processes the flux levels in the text file
+. Allows for comparision of data from the file with a general model data. Can handle the control and experimental data
 
-#Class for comparision and analysis of essential gene data from a context specific model
-#
-#
-#
-
+"""
 class CSGene:
     def __init__(self,accession,control,media = 'LB',information='NO INFORMATION'): #TODO remove default value for media
         self.accession = accession
@@ -256,7 +276,6 @@ class CSGene:
             return -1
 
 
-#def getExperimentalSamples():
 
 
 
