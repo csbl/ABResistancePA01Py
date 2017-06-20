@@ -13,16 +13,16 @@ def creationOfEssentialGeneData():
        # createEssentialGeneModel(model,'IPAE1146')
 
 
-creationOfEssentialGeneData()
+#creationOfEssentialGeneData()
 
-model = cobra.io.read_sbml_model("iPAE1146.xml")
-createEssentialGeneModel(model,'IPAE1146')
+#model = cobra.io.read_sbml_model("iPAE1146.xml")
+#createEssentialGeneModel(model,'IPAE1146')
 
 normal = ComparisionGene('IPAE1146','This is a test')
 
 
 
-reference = {'GSE90620':[1,1,1,0,0,0,0,0,0,0,0,0],'GDS3572':[0,0,0,1,1,1],'GSE65870':[0,0,0,0,0,0],'GDS4244':[1,1,1,1,1,1,0,0,0,0,0,0],'GSE30021':[1,1,1,1,1,1,0,0,0]}
+reference = {'GSE90620':[0,0,0,0,0,0,0,0,0,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
 
 CSD = []
 
@@ -34,8 +34,9 @@ for x in reference:
 
 results = []
 i=0
+sampleCount = 0
 for x in CSD:
-    temp = x.findChangedFluxGenes(normal.getData())
+    temp,tempCount = x.findChangedFluxGenes(normal.getData(),0)
     s = len(results)
     if i==0:
         results = temp[:]
@@ -51,8 +52,15 @@ for x in CSD:
             if count == 0:
                 results = results + [y]
     i+=1
+    sampleCount += tempCount
 for x in results:
     x.letsPrint()
+    print x.letsPrint()  + ' ; General Model Flux Level: ' + str(normal.getData()[x.name])
+
+
+
+print 'Total Number of Experimental Samples = ' + str(sampleCount)
+
 
 
 """

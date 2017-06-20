@@ -4,6 +4,7 @@ import cobra.solvers.gurobi_solver
 import cobra.io
 from numpy import *
 from os.path import join
+from scipy.stats import *
 
 
 from bisect import bisect_left
@@ -89,7 +90,11 @@ class GeneHits:
     def addToCount(self):
         self.count = self.count + 1
     def letsPrint(self):
-        print self.name + ': %d' % self.count + '; mean: %lf ; std: %lf ; sum: %lf'  %(mean(self.differences),std(self.differences),sum([abs(x) for x in self.differences]))
+        if len(self.differences) > 1 and not(mean(self.differences) == 0.0):    #TODO add in null data to the differences array to show more accurate statistic; multiply by control coeff pad with 0
+            _,pval = ttest_1samp(self.differences,0.0)
+        else:
+            pval = 1.0
+        return self.name + ': %d' % self.count + '; mean: %.12lf ; std: %.12lf ; sum: %.12lf ; pvalue %.08f' %(mean(self.differences),std(self.differences),sum([abs(x) for x in self.differences]),pval)
     def areEqual(self,x):
         if x.name == self.name:
             return 1
@@ -158,7 +163,10 @@ class CSGene:
                 tempData = list()
             else:
                 tempData.append(x)
-        self.sampleEG.remove([])
+        try:
+            self.sampleEG.remove([])
+        except:
+            pass
         self.sampleEG = {x[0]:x[1:] for x in self.sampleEG}
         for x in self.sampleEG:
             self.sampleEG[x] = {y[0]:y[1] for y in self.sampleEG[x]}
@@ -166,7 +174,7 @@ class CSGene:
         keysE = []
 
         for i in range(len(self.control)):
-            if self.control[i] == 1:
+            if self.control[i] == 0:
                 keysC.append(self.accession + '_' + str(i+1))
             else:
                 keysE.append(self.accession+'_'+str(i+1))
@@ -198,24 +206,40 @@ class CSGene:
         experimentalUnique = {x[0]:x[1:][0] for x in experimentalUnique}
         return totalUnique,controlUnique,experimentalUnique
 
-    def findChangedFluxGenes(self,generalGene):
+    def findChangedFluxGenes(self,generalGene,group):
         results = []
+        totalResults = []
         data = self.sampleEG
-
+        i = 0
         for x in data:
+            coeff = self.control[i]
             for y in data[x]:
                 if not(data[x][y] == generalGene[y]):
                     if len(results) == 0:
                         results.append(GeneHits(data[x][y] - generalGene[y],y))
-                    else:
+                    elif coeff == group:
                         count = 0
                         for z in results:
                             if z.name == y:
-                                z.combine(GeneHits(data[x][y] - generalGene[y],y))
+                                z.combine(GeneHits((data[x][y] - generalGene[y]),y))
                                 count +=1
                         if count == 0:
-                            results.append(GeneHits(data[x][y] - generalGene[y],y))
-        return results
+                            results.append(GeneHits((data[x][y] - generalGene[y]),y))
+            i +=1
+        numE = 0
+        for x in self.control:
+            if x == group:
+                numE += 1
+        for x in results:
+            if len(x.differences) > numE:
+                temp = array(x.differences)
+                temp.sort()
+                temp = list(temp)
+                x.differences = temp[0:numE-1]
+            while len(x.differences) < numE:
+                x.differences.append(0.0)
+
+        return results,numE
 
 
     def findUniqueFromControl(self):
