@@ -7,15 +7,16 @@ from os.path import join
 
 def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
-    res = cobra.flux_analysis.double_gene_deletion(model)
+    res = cobra.flux_analysis.double_gene_deletion(model,number_of_processes=1)
     newFile = open(('EssGene'+label+'.txt'),'w')
-    res.sort_index()
+
     print res
+    newFile.close()
 
 
 model = cobra.io.read_sbml_model('IPAE1146.xml')
 
 model.optimize()
 
-createEssentialGeneModelDD(model,'IPAE1146')
+createEssentialGeneModelDD(model,'IPAE1146DD')
 

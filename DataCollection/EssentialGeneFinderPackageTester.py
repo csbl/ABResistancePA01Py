@@ -15,8 +15,8 @@ def creationOfEssentialGeneData():
 
 creationOfEssentialGeneData()
 
-#model = cobra.io.read_sbml_model("iPAE1146.xml")
-#createEssentialGeneModel(model,'IPAE1146')
+model = cobra.io.read_sbml_model("iPAE1146.xml")
+createEssentialGeneModel(model,'IPAE1146')
 
 normal = ComparisionGene('IPAE1146','This is a test')
 
