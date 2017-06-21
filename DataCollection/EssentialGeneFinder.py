@@ -92,7 +92,7 @@ def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
     res = cobra.flux_analysis.double_gene_deletion(model)
     newFile = open(('EssGene'+label+'.txt'),'w')
-    res.sort_index()
+    res.sort_index()fdsafd
     results = []
 """
 
