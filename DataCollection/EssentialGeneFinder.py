@@ -4,39 +4,106 @@ import cobra.solvers.gurobi_solver
 import cobra.io
 from numpy import *
 from os.path import join
-
-
+from scipy.stats import *
 from bisect import bisect_left
-######Essential Gene Discovery Tools#########
+import cobra.manipulation
+
+
+
+
+######Essential Gene Discovery Functions#########
 def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
     hi = hi if hi is not None else len(a)  # hi defaults to len(a)
     pos = bisect_left(a, x, lo, hi)  # find insertion position
     return (pos if pos != hi and a[pos] == x else -1)  # don't walk off the end  #https://stackoverflow.com/questions/212358/binary-search-bisection-in-python
+"""
+Creates Essential Gene Data for CS models. Saves the results as a text file named EssGeneACCESSIONNUMBER_SAMPLENUMBER.txt with the 
+deleted gene name in the first column and the flux through biomass on the second column
 
+Inputs: assent - GEO accession number that corressponds to the name on the .mat file
+modelType - (optional) type of model file to be read (now only supports .mat)
+numSamples - # of samples that correspond to the accession number
+path - File path for location of the .mat models
+solver - optimizer to be used for doing the simulation 'gurobi is the default'
+
+Outputs: None
+"""
 def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=None,solver='gurobi'):
-    essGeneDataCollection = []
+    """
     newFile = open(('EssGene'+assent+'.txt'),'w')
     for x in [x+1 for x in range(numSamples)]:
         fileName = join(path,assent+ '_' + str(x) + modelType)
         CSmodel = cobra.io.load_matlab_model(fileName)
-        CSmodel.solver = solver
-        res = cobra.flux_analysis.single_gene_deletion(CSmodel)
-        res.sort_index()
+        CSmodel.solver = solver   #load model
+        res = cobra.flux_analysis.single_gene_deletion(CSmodel) #perform single gene deletion simulation
+        res.sort_index()  #sort the results of the simulation
         results = []
         for y in res.to_records(index=True):
-            results.append(tuple(y))
-        #max1 = max(res['flux'])
-        #essential = res['flux'] <  max1
-        #essential = res['flux'] <= 0.001 #Handle numerical error
-        #essGenes = res[essential]
-        #essGenes = sort(array(essGenes.index.tolist()))
-        #essGeneDataCollection = essGeneDataCollection + ['\n-----------------------\n'+ assent+'_'+str(x)] +  essGenes.tolist()
-        newFile.write('\n-----------------------\n'+ assent+'_'+str(x)+'\n')
-        [newFile.write(str(x[0]) + ' ' + str(x[1])+'\n') for x in results]
+            results.append(tuple(y)) #gather geneName,flux tuples
+        newFile.write('\n-----------------------\n'+ assent+'_'+str(x)+'\n')#write sample label
+        [newFile.write(str(x[0]) + ' ' + str(x[1])+'\n') for x in results] #write results to file
 
-    newFile.write('\n-----------------------\n')
+    newFile.write('\n-----------------------\n')#write final marker
+    newFile.close()
+    """
+    """For use in create CS model from geneStates.txt file in matlab"""
+    newFile = open(('EssGene' + assent + '.txt'), 'w')
+    for x in [x + 1 for x in range(numSamples)]:
+        fileName = join(path, assent + '_' + str(x) + '.txt')
+        statesFile = open(fileName,'r')
+        geneStates = statesFile.readlines()
+        geneStates = [y.split(" ") for y in geneStates]
+        geneNames = []
+        for y in geneStates:
+            if int(y[1]) == 0:
+                geneNames.append(y[0])
+        CSmodel = cobra.io.read_sbml_model("iPAE1146.xml")
+        CSmodel.solver = solver  # load model
+        if not(len(geneNames) == 0):
+            cobra.manipulation.delete_model_genes(CSmodel,geneNames)
+        #cobra.manipulation.delete_model_genes(CSmodel,'PA5097')
+        res = cobra.flux_analysis.single_gene_deletion(CSmodel)  # perform single gene deletion simulation
+        res.sort_index()  # sort the results of the simulation
+        results = []
+        for y in res.to_records(index=True):
+            results.append(tuple(y))  # gather geneName,flux tuples
+        newFile.write('\n-----------------------\n' + assent + '_' + str(x) + '\n')  # write sample label
+        [newFile.write(str(x[0]) + ' ' + str(x[1]) + '\n') for x in results]  # write results to file
+        statesFile.close()
+
+    newFile.write('\n-----------------------\n')  # write final marker
     newFile.close()
 
+def createSingleReactionDeletionData(assent,numSamples=1,path=None,solver = 'gurobi'):
+    newFile = open(('EssReact' + assent + '.txt'), 'w')
+    for x in [x + 1 for x in range(numSamples)]:
+        fileName = join(path, assent + '_' + str(x) + '.txt')
+        statesFile = open(fileName, 'r')
+        geneStates = statesFile.readlines()
+        geneStates = [y.split(" ") for y in geneStates]
+        geneNames = []
+        for y in geneStates:
+            if int(y[1]) == 0:
+                geneNames.append(y[0])
+        CSmodel = cobra.io.read_sbml_model("iPAE1146.xml")
+        CSmodel.solver = solver  # load model
+        if not (len(geneNames) == 0):
+            cobra.manipulation.delete_model_genes(CSmodel, geneNames)
+        # cobra.manipulation.delete_model_genes(CSmodel,'PA5097')
+        res = cobra.flux_analysis.single_reaction_deletion(CSmodel)  # perform single gene deletion simulation
+        res.sort_index()  # sort the results of the simulation
+        results = []
+        for y in res.to_records(index=True):
+            results.append(tuple(y))  # gather geneName,flux tuples
+        newFile.write('\n-----------------------\n' + assent + '_' + str(x) + '\n')  # write sample label
+        [newFile.write(str(x[0]) + ' ' + str(x[1]) + '\n') for x in results]  # write results to file
+        statesFile.close()
+
+    newFile.write('\n-----------------------\n')  # write final marker
+    newFile.close()
+
+"""
+No longer functional. Original Purpose is to find the number of changed genes given a set of unique genes. Not compatable with flux variatios=ns
 def findNumberofHits(uniqueData):
     pings = []
     for x in uniqueData:
@@ -57,57 +124,93 @@ def findNumberofHits(uniqueData):
                                 j.addToCount()
     return pings
 
-def createEssentialGeneModel(model,label,type = 'smbl',solver = 'gurobi'):
+"""
+
+
+"""
+Function that calculates the results of a single deletion simulation for a cobra model. Creates a text file in the same format as above.
+Inputs: model - cobra model for which the simulation should be performed
+label - label for the resulting file output i.e. EssGeneLABEL.txt
+solver - solver for use in simulation default is gurobi
+"""
+def createEssentialGeneModel(model,label,solver = 'gurobi'):
     model.solver = solver
-    res = cobra.flux_analysis.single_gene_deletion(model)
-    #max1 = max(res['flux'])
-    #essential = res['flux'] <  max1
-    #essGenes = res[essential]
-    #essGenes = sort(array(essGenes.index.tolist()))
+    #cobra.manipulation.delete_model_genes(model,'PA5097')
+    res = cobra.flux_analysis.single_gene_deletion(model)#perform simulation
     newFile = open(('EssGene' + label + '.txt'), 'w')
     res.sort_index()
     results = []
     for x in res.to_records(index=True):
-        results.append(tuple(x))
-    [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results]
+        results.append(tuple(x)) #gather geneName flux level tuple
+    [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results] #write results
     newFile.write('\n')
     newFile.close()
+
+"""   
+def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
+    model.solver = solver
+    res = cobra.flux_analysis.double_gene_deletion(model)
+    newFile = open(('EssGene'+label+'.txt'),'w')
+    res.sort_index()
+    results = []
+"""
+
     ##### Analysis Tools #########
+"""   
+Class the handles the information from simulation results. Organizes flux levels for a series of hits. Allows for consolidated information and output
+"""
 class GeneHits:
-    def __init__(self , name):
+    def __init__(self , differences,  name):
         self.name = name
         self.count = 1
-       # self.index = name[:6]
+        self.differences = [differences]
     def addToCount(self):
         self.count = self.count + 1
+    """ Returns a formatted string containing the name of the gene, number of hits, mean, std, sum, and pvalue using one sample t test"""
     def letsPrint(self):
-        print self.name + ': %d' % self.count
+        if len(self.differences) > 1:
+           # print (len(self.differences))#TODO add in null data to the differences array to show more accurate statistic; multiply by control coeff pad with 0
+            _,pval = ttest_1samp(self.differences,0.0)
+        else:
+            pval = 1.0
+        return self.name, self.count ,mean(self.differences),std(self.differences),sum([abs(x) for x in self.differences]),pval
+    def areEqual(self,x):
+        if x.name == self.name:
+            return 1
+        else:
+            return 0
+    """Combines two GeneHits objects"""
+    def combine(self,x):
+        self.count += x.count
+        self.differences = self.differences + x.differences
 
-#
-#Class for the characterization of essential genes for a general metabolic model. Processes the data in the EssGene file.
-#
+"""
+Class for the characterization of essential genes for a general metabolic model. Processes the data in the EssGene file. 
+Data is acessible through the getData() function wher the genes and corresponding fluxes are stored as a dictionary
+"""
 class ComparisionGene:
     def __init__(self,label,information):
         self.normalFile = open('EssGene'+label+'.txt', 'r')
         self.normalData = self.normalFile.readlines()
         try:
             while(True):
-                self.normalData.remove('\n')
+                self.normalData.remove('\n') #clean up file
         except:
             pass
         for x in range(len(self.normalData)):
-                self.normalData[x] = self.normalData[x][:-1]
+                self.normalData[x] = self.normalData[x][:-1] #remove final characters
+        self.normalData = [x.split(" ") for x in self.normalData]#separate name and values
+        self.normalData = {x[0]:float(x[1]) for x in self.normalData}#creat dictionary
         self.normalFile.close()
-        self.information = information
+        self.information = information #stores other string information that corresponds to the general model.
         self.normalFile.close()
     def getData(self):
         return self.normalData
+"""
+#Class for comparision and analysis of essential gene data from a context specific model. Processes the flux levels in the text file
+. Allows for comparision of data from the file with a general model data. Can handle the control and experimental data
 
-#Class for comparision and analysis of essential gene data from a context specific model
-#
-#
-#
-
+"""
 class CSGene:
     def __init__(self,accession,control,media = 'LB',information='NO INFORMATION'): #TODO remove default value for media
         self.accession = accession
@@ -132,27 +235,39 @@ class CSGene:
                 if len(self.sampleEG) == 0:
                     self.sampleEG = [tempData]
                 else:
-                    self.sampleEG.append(tempData)
+                    tempData2 = [tempData[0]]
+                    for y in [x+1 for x in range(len(tempData)-1)]:
+                        spliter = tempData[y].split(" ")
+                        tempData2.append([spliter[0],float(spliter[1])])
+                    self.sampleEG.append(tempData2)
                 tempData = list()
             else:
                 tempData.append(x)
-        self.sampleEG.remove([])
+        try:
+            self.sampleEG.remove([])
+        except:
+            pass
         self.sampleEG = {x[0]:x[1:] for x in self.sampleEG}
+        for x in self.sampleEG:
+            self.sampleEG[x] = {y[0]:y[1] for y in self.sampleEG[x]}
         keysC = []
         keysE = []
+
         for i in range(len(self.control)):
-            if self.control[i] == 1:
+            if self.control[i] == 0:
                 keysC.append(self.accession + '_' + str(i+1))
             else:
                 keysE.append(self.accession+'_'+str(i+1))
-        totList = []
-        [totList.append(set(self.sampleEG[x])) for x in keysC]
-        self.controlData = [list(x) for x in totList[:]]
-        totList = list()
-        [totList.append(set(self.sampleEG[x])) for x in keysE]
-        self.experimentalData = [list(x) for x in totList[:]]
+        #totList =[]
+        #[totList.append(set(self.sampleEG[x])) for x in keysC]
+        #self.controlData = [list(x) for x in totList[:]]
+        #totList = list()
+        #[totList.append(set(self.sampleEG[x])) for x in keysE]
+        #self.experimentalData = [list(x) for x in totList[:]]
+        #self.controlData = [self.sampleEG[x] for x in keysC] #TODO need to handle all control or all experimental samples (index out of bounds)
+        #self.experimentalData = [self.sampleEG[x] for x in keysE]
 
-
+    """
     def findUniqueFrom(self,geneTot):
         uniqueGene = []
         controlUnique = []
@@ -170,6 +285,41 @@ class CSGene:
         controlUnique = {x[0]:x[1:][0] for x in controlUnique}
         experimentalUnique = {x[0]:x[1:][0] for x in experimentalUnique}
         return totalUnique,controlUnique,experimentalUnique
+    """
+    def findChangedFluxGenes(self,generalGene,group):
+        results = []
+        data = self.sampleEG
+        i = 0
+        for x in data:
+            coeff = self.control[i]
+            for y in data[x]:
+                if not(data[x][y] == generalGene[y]):
+                    if len(results) == 0:
+                        results.append(GeneHits(data[x][y] - generalGene[y],y))
+                    elif coeff == group:
+                        count = 0
+                        for z in results:
+                            if z.name == y:
+                                z.combine(GeneHits((data[x][y] - generalGene[y]),y))
+                                count +=1
+                        if count == 0:
+                            results.append(GeneHits((data[x][y] - generalGene[y]),y))
+            i +=1
+        numE = 0
+        for x in self.control:
+            if x == group:
+                numE += 1
+        for x in range(len(results)):
+            if len(results[x].differences) > numE:
+                temp = array(results[x].differences)
+                temp.sort()
+                temp = list(temp)
+                results[x].differences = temp[0:numE-1]
+            while len(results[x].differences) < numE:
+                results[x].differences.append(0.0)
+
+        return results,numE
+
 
     def findUniqueFromControl(self):
         try:
@@ -185,7 +335,6 @@ class CSGene:
             return -1
 
 
-#def getExperimentalSamples():
 
 
 
