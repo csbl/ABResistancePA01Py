@@ -259,3 +259,330 @@ Gurobi 7.0.2 (win64, Python) logging started 06/29/17 17:01:56
 
 Gurobi 7.0.2 (win64, Python) logging started 06/30/17 13:19:38
 
+
+Gurobi 7.0.2 (win64, Python) logging started 06/30/17 15:46:56
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/03/17 09:22:10
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/03/17 09:28:46
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/03/17 09:30:18
+
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmppwmv4i.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpa9rwqo.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpxk4nk8.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp5bbihi.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpkfku3g.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpifc9_i.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmptmnbmh.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmplgykyx.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpe3bpp9.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpjlo4xm.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpdmwyod.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp95p7pc.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpuxs3yw.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpihprku.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpieogkb.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpbnoxhv.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp7blhio.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmplgi8fr.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpg74ej3.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmphyrpxc.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp7olgsn.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpc6aofr.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpvebyem.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpmgq06i.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp2woo6o.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpw_tblr.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmplcu0kh.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpsuhnbp.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmprjzaru.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpd7i85m.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp08hwby.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp7w2il4.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpskly6a.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpgvemv4.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpogc6j2.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp29dd9q.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpgjc3ct.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp0fmkbn.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpngykmw.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpdxopxg.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpv8inry.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp_s95ec.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmprlfllx.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpiveuil.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpvz5pxl.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1

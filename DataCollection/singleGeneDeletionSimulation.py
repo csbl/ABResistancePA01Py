@@ -5,27 +5,21 @@ from copy import deepcopy
 def creationOfEssentialGeneData():
     assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
     nsamples = [12,12,6,9,6]
+    model = cobra.io.read_sbml_model("iPAE1146.xml")
+    createEssentialGeneModel(model,'IPAE1146')
 
     for i in range(len(assent)):
+        createEssentialGeneDataAssent(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
 
-        createSingleReactionDeletionData(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
-      #  model = cobra.io.read_sbml_model("iPAE1146.xml")
-       # createEssentialGeneModel(model,'IPAE1146')
 
 
 creationOfEssentialGeneData()
 
-model = cobra.io.read_sbml_model("iPAE1146.xml")
-createEssentialGeneModel(model,'IPAE1146')
-
 normal = ComparisionGene('IPAE1146','This is a test')
-
-
 
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
 
 CSD = []
-
 
 for x in reference:
     temp = CSGene(x,reference[x])
@@ -75,9 +69,3 @@ for g in typeOfSample:
     footer = 'Total Number of %s Samples = %d' % (types[g],sampleCount)
     print footer
     file.close()
-"""
-for x in results:
-    if x.name == 'PA5097':
-        print x.differences
-"""
-

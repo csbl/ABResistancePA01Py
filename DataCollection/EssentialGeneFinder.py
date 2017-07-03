@@ -7,9 +7,7 @@ from os.path import join
 from scipy.stats import *
 from bisect import bisect_left
 import cobra.manipulation
-
-
-
+from copy import deepcopy
 
 ######Essential Gene Discovery Functions#########
 def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
@@ -28,27 +26,12 @@ solver - optimizer to be used for doing the simulation 'gurobi is the default'
 
 Outputs: None
 """
-def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=None,solver='gurobi'):
-    """
-    newFile = open(('EssGene'+assent+'.txt'),'w')
-    for x in [x+1 for x in range(numSamples)]:
-        fileName = join(path,assent+ '_' + str(x) + modelType)
-        CSmodel = cobra.io.load_matlab_model(fileName)
-        CSmodel.solver = solver   #load model
-        res = cobra.flux_analysis.single_gene_deletion(CSmodel) #perform single gene deletion simulation
-        res.sort_index()  #sort the results of the simulation
-        results = []
-        for y in res.to_records(index=True):
-            results.append(tuple(y)) #gather geneName,flux tuples
-        newFile.write('\n-----------------------\n'+ assent+'_'+str(x)+'\n')#write sample label
-        [newFile.write(str(x[0]) + ' ' + str(x[1])+'\n') for x in results] #write results to file
+def createEssentialGeneDataAssent(assent,CSmodel,numSamples =1 ,path=None,solver='gurobi'):
 
-    newFile.write('\n-----------------------\n')#write final marker
-    newFile.close()
-    """
     """For use in create CS model from geneStates.txt file in matlab"""
     newFile = open(('EssGene' + assent + '.txt'), 'w')
     for x in [x + 1 for x in range(numSamples)]:
+        tempModel = CSmodel.copy()
         fileName = join(path, assent + '_' + str(x) + '.txt')
         statesFile = open(fileName,'r')
         geneStates = statesFile.readlines()
@@ -57,12 +40,11 @@ def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=
         for y in geneStates:
             if int(y[1]) == 0:
                 geneNames.append(y[0])
-        CSmodel = cobra.io.read_sbml_model("iPAE1146.xml")
-        CSmodel.solver = solver  # load model
+        tempModel.solver = solver  # load model
         if not(len(geneNames) == 0):
-            cobra.manipulation.delete_model_genes(CSmodel,geneNames)
-        #cobra.manipulation.delete_model_genes(CSmodel,'PA5097')
-        res = cobra.flux_analysis.single_gene_deletion(CSmodel)  # perform single gene deletion simulation
+            cobra.manipulation.delete_model_genes(tempModel,geneNames)
+        #cobra.manipulation.delete_model_genes(tempModel,'PA5097')
+        res = cobra.flux_analysis.single_gene_deletion(tempModel)  # perform single gene deletion simulation
         res.sort_index()  # sort the results of the simulation
         results = []
         for y in res.to_records(index=True):
@@ -74,7 +56,7 @@ def createEssentialGeneDataAssent(assent,modelType = '.mat',numSamples =1 ,path=
     newFile.write('\n-----------------------\n')  # write final marker
     newFile.close()
 
-def createSingleReactionDeletionData(assent,numSamples=1,path=None,solver = 'gurobi'):
+def createSingleReactionDeletionData(assent,CSmodel,numSamples=1,path=None,solver = 'gurobi'):
     newFile = open(('EssReact' + assent + '.txt'), 'w')
     for x in [x + 1 for x in range(numSamples)]:
         fileName = join(path, assent + '_' + str(x) + '.txt')
@@ -85,7 +67,6 @@ def createSingleReactionDeletionData(assent,numSamples=1,path=None,solver = 'gur
         for y in geneStates:
             if int(y[1]) == 0:
                 geneNames.append(y[0])
-        CSmodel = cobra.io.read_sbml_model("iPAE1146.xml")
         CSmodel.solver = solver  # load model
         if not (len(geneNames) == 0):
             cobra.manipulation.delete_model_genes(CSmodel, geneNames)
