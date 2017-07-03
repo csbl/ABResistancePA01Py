@@ -13,7 +13,7 @@ def creationOfEssentialGeneData():
 
 
 
-creationOfEssentialGeneData()
+#creationOfEssentialGeneData()
 
 normal = ComparisionGene('IPAE1146','This is a test')
 
@@ -60,7 +60,7 @@ for g in typeOfSample:
     file.write(headers+'\n')
     for x in results:
         name,count,mean,std,sum,pval = x.letsPrint()
-        if( abs(mean) > .0001 ):
+        if( abs(mean) > .001 ):
             resulting = '%s  %d  %.12f  %.12f  %.12f  %.12f  %s  %.4f' % (name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean)
             file.write(resulting+'\n')
             print resulting

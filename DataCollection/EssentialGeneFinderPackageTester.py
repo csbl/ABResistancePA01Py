@@ -5,30 +5,25 @@ from copy import deepcopy
 def creationOfEssentialGeneData():
     assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
     nsamples = [12,12,6,9,6]
-
+    model = cobra.io.read_sbml_model("iPAE1146.xml")
+    createEssentialReactionModel(model,'IPAE1146')
     for i in range(len(assent)):
-
         createSingleReactionDeletionData(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
-      #  model = cobra.io.read_sbml_model("iPAE1146.xml")
-       # createEssentialGeneModel(model,'IPAE1146')
 
 
-creationOfEssentialGeneData()
 
-model = cobra.io.read_sbml_model("iPAE1146.xml")
-createEssentialGeneModel(model,'IPAE1146')
+#creationOfEssentialGeneData()
 
-normal = ComparisionGene('IPAE1146','This is a test')
-
-
+normal = ComparisionGene('IPAE1146','This is a test',type = 'React')
 
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
 
 CSD = []
 
 
+
 for x in reference:
-    temp = CSGene(x,reference[x])
+    temp = CSGene(x,reference[x],type = 'React')
     temp.processSamples()
     CSD.append(temp)
 
@@ -59,14 +54,14 @@ for g in typeOfSample:
         i+=1
         sampleCount += tempCount
 
-    types = {1: 'Experimental', 0: 'Control'}
+    types = {1: 'ExperimentalReact', 0: 'ControlReact'}
     file = open(types[g]+'.txt','w')
     headers = 'Name Count Mean Std Sum Pvalue GEM_FBM CS_FBM'
     print headers
     file.write(headers+'\n')
     for x in results:
         name,count,mean,std,sum,pval = x.letsPrint()
-        if( abs(mean) > .0001 ):
+        if( abs(mean) > .001 ):
             resulting = '%s  %d  %.12f  %.12f  %.12f  %.12f  %s  %.4f' % (name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean)
             file.write(resulting+'\n')
             print resulting
@@ -75,6 +70,7 @@ for g in typeOfSample:
     footer = 'Total Number of %s Samples = %d' % (types[g],sampleCount)
     print footer
     file.close()
+
 """
 for x in results:
     if x.name == 'PA5097':

@@ -56,9 +56,10 @@ def createEssentialGeneDataAssent(assent,CSmodel,numSamples =1 ,path=None,solver
     newFile.write('\n-----------------------\n')  # write final marker
     newFile.close()
 
-def createSingleReactionDeletionData(assent,CSmodel,numSamples=1,path=None,solver = 'gurobi'):
+def createSingleReactionDeletionData(assent,model,numSamples=1,path=None,solver = 'gurobi'):
     newFile = open(('EssReact' + assent + '.txt'), 'w')
     for x in [x + 1 for x in range(numSamples)]:
+        CSmodel = model.copy()
         fileName = join(path, assent + '_' + str(x) + '.txt')
         statesFile = open(fileName, 'r')
         geneStates = statesFile.readlines()
@@ -127,6 +128,19 @@ def createEssentialGeneModel(model,label,solver = 'gurobi'):
     newFile.write('\n')
     newFile.close()
 
+def createEssentialReactionModel(model,label,solver= 'gurobi'):
+    model.solver = solver
+    res = cobra.flux_analysis.single_reaction_deletion(model)  # perform simulation
+    newFile = open(('EssReact' + label + '.txt'), 'w')
+    res.sort_index()
+    results = []
+    for x in res.to_records(index=True):
+        results.append(tuple(x))  # gather geneName flux level tuple
+    [newFile.write('\n' + str(x[0]) + ' ' + str(x[1])) for x in results]  # write results
+    newFile.write('\n')
+    newFile.close()
+
+
 """   
 def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
     model.solver = solver
@@ -170,8 +184,8 @@ Class for the characterization of essential genes for a general metabolic model.
 Data is acessible through the getData() function wher the genes and corresponding fluxes are stored as a dictionary
 """
 class ComparisionGene:
-    def __init__(self,label,information):
-        self.normalFile = open('EssGene'+label+'.txt', 'r')
+    def __init__(self,label,information,type = 'Gene'):
+        self.normalFile = open('Ess'+type+label+'.txt', 'r')
         self.normalData = self.normalFile.readlines()
         try:
             while(True):
@@ -193,10 +207,10 @@ class ComparisionGene:
 
 """
 class CSGene:
-    def __init__(self,accession,control,media = 'LB',information='NO INFORMATION'): #TODO remove default value for media
+    def __init__(self,accession,control,media = 'LB',information='NO INFORMATION',type = 'Gene'): #TODO remove default value for media
         self.accession = accession
         self.information = information
-        self.file = open('EssGene'+self.accession+'.txt','r')
+        self.file = open('Ess'+type+self.accession+'.txt','r')
         self.dataTot = self.file.readlines()
         self.control = control
         self.media = media
@@ -302,6 +316,7 @@ class CSGene:
         return results,numE
 
 
+    """
     def findUniqueFromControl(self):
         try:
             totList = []
@@ -315,7 +330,7 @@ class CSGene:
             print 'Error: You must run CSGene.processSamples() first'
             return -1
 
-
+    """
 
 
 
