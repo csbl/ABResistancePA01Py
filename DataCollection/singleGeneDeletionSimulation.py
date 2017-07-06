@@ -1,5 +1,6 @@
 from EssentialGeneFinder import *
-from copy import deepcopy
+import scipy.stats
+from pandas import DataFrame
 
 
 def creationOfEssentialGeneData():
@@ -10,6 +11,13 @@ def creationOfEssentialGeneData():
 
     for i in range(len(assent)):
         createEssentialGeneDataAssent(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
+def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,a = .05):
+    if s2 == -1: s2 = s1
+    if n2 == -1: n2 = n1
+    T = (y1-y2)/sqrt(s1/n1 + s2 / n2)
+    v = ((s1/n1+s2/n2)**2)/(((s1/n1)**2)/(n1-1)+((s2/n2)**2)/(n2-1))
+    return scipy.stats.t.sf(T,v)*2
+
 
 
 
@@ -30,9 +38,13 @@ results = []
 i=0
 sampleCount = 0
 typeOfSample = [0,1]
+controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
+experimentalSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
+data = [controlSample,experimentalSample]
 for g in typeOfSample:
     results = []
     i = 0
+    j = 0
     sampleCount = 0
     for x in CSD:
         temp,tempCount = x.findChangedFluxGenes(normal.getData(),g)
@@ -63,9 +75,23 @@ for g in typeOfSample:
         if( abs(mean) > .001 ):
             resulting = '%s  %d  %.12f  %.12f  %.12f  %.12f  %s  %.4f' % (name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean)
             file.write(resulting+'\n')
+            data[g].loc[j] = [name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean]
             print resulting
-
+            j += 1
 
     footer = 'Total Number of %s Samples = %d' % (types[g],sampleCount)
     print footer
     file.close()
+
+file = open('ExperimentalWithTTest.txt','w')
+file.write(headers+' PVal (ctc)'+'\n')
+y = experimentalSample.values.tolist()
+for z in y:
+    resulting = '%s  %d  %.12f  %.12f  %.12f  %.12f  %s  %.4f' % tuple(z)
+    try:
+        con = controlSample.loc[controlSample['Name'] == z[0]]
+        file.write(resulting + '    %.4f' % t_testUnpaired_fromSum(z[2],z[3]**2,sampleCount,con['Mean'].values,con['Std'].values,18) + '\n')
+    except:
+        file.write(resulting + '    0.0' + '\n')
+file.close()
+
