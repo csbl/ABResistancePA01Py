@@ -16,7 +16,7 @@ def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,a = .05):
     if n2 == -1: n2 = n1
     T = (y1-y2)/sqrt(s1/n1 + s2 / n2)
     v = ((s1/n1+s2/n2)**2)/(((s1/n1)**2)/(n1-1)+((s2/n2)**2)/(n2-1))
-    return scipy.stats.t.sf(T,v)*2
+    return scipy.stats.t.sf(abs(T),v)*2
 
 
 
@@ -36,7 +36,7 @@ for x in reference:
 
 results = []
 i=0
-sampleCount = 0
+sampleCount = [0,0]
 typeOfSample = [0,1]
 controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
 experimentalSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
@@ -45,7 +45,7 @@ for g in typeOfSample:
     results = []
     i = 0
     j = 0
-    sampleCount = 0
+    sampleCount[g] = 0
     for x in CSD:
         temp,tempCount = x.findChangedFluxGenes(normal.getData(),g)
         s = len(results)
@@ -63,7 +63,7 @@ for g in typeOfSample:
                 if count == 0:
                     results = results + [y]
         i+=1
-        sampleCount += tempCount
+        sampleCount[g] += tempCount
 
     types = {1: 'Experimental', 0: 'Control'}
     file = open(types[g]+'.txt','w')
@@ -79,19 +79,19 @@ for g in typeOfSample:
             print resulting
             j += 1
 
-    footer = 'Total Number of %s Samples = %d' % (types[g],sampleCount)
+    footer = 'Total Number of %s Samples = %d' % (types[g],sampleCount[g])
     print footer
     file.close()
 
 file = open('ExperimentalWithTTest.txt','w')
-file.write(headers+' PVal (ctc)'+'\n')
+file.write(headers+' PVal_(ctc)'+'\n')
 y = experimentalSample.values.tolist()
 for z in y:
     resulting = '%s  %d  %.12f  %.12f  %.12f  %.12f  %s  %.4f' % tuple(z)
     try:
         con = controlSample.loc[controlSample['Name'] == z[0]]
-        file.write(resulting + '    %.4f' % t_testUnpaired_fromSum(z[2],z[3]**2,sampleCount,con['Mean'].values,con['Std'].values,18) + '\n')
+        file.write(resulting + '  %.4f' % t_testUnpaired_fromSum(z[2],z[3]**2,sampleCount[0],con['Mean'].values,con['Std'].values**2,sampleCount[1]) + '\n')
     except:
-        file.write(resulting + '    0.0' + '\n')
+        file.write(resulting + '  0.0' + '\n')
 file.close()
 
