@@ -11,12 +11,7 @@ def creationOfEssentialGeneData():
 
     for i in range(len(assent)):
         createEssentialGeneDataAssent(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
-def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,a = .05):
-    if s2 == -1: s2 = s1
-    if n2 == -1: n2 = n1
-    T = (y1-y2)/sqrt(s1/n1 + s2 / n2)
-    v = ((s1/n1+s2/n2)**2)/(((s1/n1)**2)/(n1-1)+((s2/n2)**2)/(n2-1))
-    return scipy.stats.t.sf(abs(T),v)*2
+
 
 
 
@@ -90,7 +85,7 @@ for z in y:
     resulting = '%s  %d  %.12f  %.12f  %.12f  %.12f  %s  %.4f' % tuple(z)
     try:
         con = controlSample.loc[controlSample['Name'] == z[0]]
-        file.write(resulting + '  %.4f' % t_testUnpaired_fromSum(z[2],z[3]**2,sampleCount[0],con['Mean'].values,con['Std'].values**2,sampleCount[1]) + '\n')
+        file.write(resulting + '  %.4f' % t_testUnpaired_fromSum(z[2],z[3]**2,sampleCount[1],con['Mean'].values,con['Std'].values**2,sampleCount[0]) + '\n')
     except:
         file.write(resulting + '  0.0' + '\n')
 file.close()

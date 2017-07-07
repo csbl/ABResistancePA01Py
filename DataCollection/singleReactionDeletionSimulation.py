@@ -71,7 +71,6 @@ for z,m,sd in zip(data[1]["Name"].values,data[1]["Mean"].values,data[1]["Std"].v
         y.append(t_testUnpaired_fromSum(m,sd**2,sampleCount[1],con['Mean'].values,con['Std'].values**2,sampleCount[0]))
     except:
         y.append(0.0)
-    print y
 data[1].insert(len(data[1].columns.values),"PVal(cont)", y)
 i = 0;
 for x in data:

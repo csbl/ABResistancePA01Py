@@ -8,12 +8,20 @@ from scipy.stats import *
 from bisect import bisect_left
 import cobra.manipulation
 from copy import deepcopy
+import scipy.stats
 
 ######Essential Gene Discovery Functions#########
 def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
     hi = hi if hi is not None else len(a)  # hi defaults to len(a)
     pos = bisect_left(a, x, lo, hi)  # find insertion position
     return (pos if pos != hi and a[pos] == x else -1)  # don't walk off the end  #https://stackoverflow.com/questions/212358/binary-search-bisection-in-python
+
+def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,a = .05):
+    if s2 == -1: s2 = s1
+    if n2 == -1: n2 = n1
+    T = (y1-y2)/sqrt(s1/n1 + s2 / n2)
+    v = ((s1/n1+s2/n2)**2)/(((s1/n1)**2)/(n1-1)+((s2/n2)**2)/(n2-1))
+    return scipy.stats.t.sf(abs(T),v)[0]*2
 """
 Creates Essential Gene Data for CS models. Saves the results as a text file named EssGeneACCESSIONNUMBER_SAMPLENUMBER.txt with the 
 deleted gene name in the first column and the flux through biomass on the second column
