@@ -92,6 +92,28 @@ def createSingleReactionDeletionData(assent,model,numSamples=1,path=None,solver 
     newFile.write('\n-----------------------\n')  # write final marker
     newFile.close()
 
+def perform_fva(assent,model,numSamples=1,path = None,solver= 'gurobi'):
+    totalFVARes = []
+    for x in [x + 1 for x in range(numSamples)]:
+        CSmodel = model.copy()
+        fileName = join(path, assent + '_' + str(x) + '.txt')
+        statesFile = open(fileName, 'r')
+        geneStates = statesFile.readlines()
+        geneStates = [y.split(" ") for y in geneStates]
+        geneNames = []
+        for y in geneStates:
+            if int(y[1]) == 0:
+                geneNames.append(y[0])
+        CSmodel.solver = solver  # load model
+        if not (len(geneNames) == 0):
+            cobra.manipulation.delete_model_genes(CSmodel, geneNames)
+        # cobra.manipulation.delete_model_genes(CSmodel,'PA5097')
+        res = cobra.flux_analysis.flux_variability_analysis(CSmodel,loopless=True)  # perform single gene deletion simulation
+          # gather geneName,flux tuples
+        res.to_csv('FVA'+assent+'_'+str(x)+'.csv')
+        #totalFVARes.append(res)
+        statesFile.close()
+    return totalFVARes
 """
 No longer functional. Original Purpose is to find the number of changed genes given a set of unique genes. Not compatable with flux variatios=ns
 def findNumberofHits(uniqueData):
