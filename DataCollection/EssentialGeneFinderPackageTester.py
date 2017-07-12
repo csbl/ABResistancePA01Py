@@ -24,7 +24,7 @@ model = cobra.io.read_sbml_model("iPAE1146.xml")
 assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
 nsamples = [12,12,6,9,6]
-mini = 900
+mini = 0
 maxi = 2000
 n = 5
 compModelFVA =DataFrame.from_csv('FVA'+'IPAE1146'+'.csv')
@@ -34,6 +34,8 @@ lb = abs(min([x.lower_bound for x in model.reactions]))
 ub = abs(max([x.upper_bound for x in model.reactions]))
 ysize = lb + ub
 ybins = maxi-mini
+yblim = 900
+ytlim = 2000
 geneMap = Series(range(xbins),compModelFVA.index.values).to_dict()
 geneMapInv = Series(compModelFVA.index.values,range(xbins)).to_dict()
 
@@ -57,8 +59,8 @@ for group in [0,1]:
     plt.xticks(rotation = 45)
     #plt.xticks(range(xbins),[geneMapInv[x] for x in range(xbins)])
     plt.yticks(numpy.linspace(mini,maxi,n),[x-lb for x in numpy.linspace(mini,maxi,n)])
-    plt.ylim((mini,maxi))
-    plt.xlabel('Gene')
+    plt.ylim((yblim,ytlim))
+    plt.xlabel('Reaction')
     plt.ylabel('Flux')
     plt.title(types[group], y = 1.15)
     FVARes.append(resultMat.transpose().copy())
