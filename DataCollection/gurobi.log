@@ -3306,3 +3306,9 @@ Changed value of parameter Method to 0
    Prev: -1  Min: -1  Max: 4  Default: -1
 Changed value of parameter Presolve to 0
    Prev: -1  Min: -1  Max: 2  Default: -1
+
+Gurobi 7.0.2 (win64, Python) logging started 07/18/17 16:10:25
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/18/17 16:11:16
+
