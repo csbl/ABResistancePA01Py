@@ -237,32 +237,32 @@ class ComparisionGene:
 
 """
 class CSGene:
-    def __init__(self,accession,control,media = 'LB',information='NO INFORMATION',type = 'Gene'): #TODO remove default value for media
+    def __init__(self,accession,control,media = 1,information='NO INFORMATION',type = 'Gene'): #TODO remove default value for media
         self.accession = accession
         self.information = information
         self.file = open('Ess'+type+self.accession+'.txt','r')
-        self.dataTot = self.file.readlines()
-        self.control = control
-        self.media = media
+        self.dataTot = self.file.readlines() #collect values in list of strings
+        self.control = control #define array of control information e.g. [1,0,0,0,1,1]
+        self.media = media #define media value
         try:
             while(True):
-                self.dataTot.remove('\n')
+                self.dataTot.remove('\n') #remove lines
         except:
             pass
         for x in range(len(self.dataTot)):
-            self.dataTot[x] = self.dataTot[x][:-1]
+            self.dataTot[x] = self.dataTot[x][:-1] #remove eol characters
         self.file.close()
     def processSamples(self):
-        self.sampleEG = []
+        self.sampleEG = [] #2d list for holding gene, flux
         tempData = []
         for x in self.dataTot:
-            if x[0] == '-':
+            if x[0] == '-': #if starting new sample
                 if len(self.sampleEG) == 0:
-                    self.sampleEG = [tempData]
+                    self.sampleEG = [tempData] #if on the second sample add all to the sampleEG list
                 else:
                     tempData2 = [tempData[0]]
                     for y in [x+1 for x in range(len(tempData)-1)]:
-                        spliter = tempData[y].split(" ")
+                        spliter = tempData[y].split(" ") #split values
                         tempData2.append([spliter[0],float(spliter[1])])
                     self.sampleEG.append(tempData2)
                 tempData = list()
@@ -311,17 +311,17 @@ class CSGene:
         experimentalUnique = {x[0]:x[1:][0] for x in experimentalUnique}
         return totalUnique,controlUnique,experimentalUnique
     """
-    def findChangedFluxGenes(self,generalGene,group):
+    def findChangedFluxGenes(self,generalGene,group,media = 3):
         results = []
         data = self.sampleEG
         i = 0
         for x in data:
             coeff = self.control[i]
             for y in data[x]:
-                if not(data[x][y] == generalGene[y]):
+                if not(data[x][y] == generalGene[y]) and coeff == group and (self.media == media or media == 3) :
                     if len(results) == 0:
                         results.append(GeneHits(data[x][y] - generalGene[y],y))
-                    elif coeff == group:
+                    else:
                         count = 0
                         for z in results:
                             if z.name == y:
@@ -331,17 +331,18 @@ class CSGene:
                             results.append(GeneHits((data[x][y] - generalGene[y]),y))
             i +=1
         numE = 0
-        for x in self.control:
-            if x == group:
-                numE += 1
-        for x in range(len(results)):
-            if len(results[x].differences) > numE:
-                temp = array(results[x].differences)
-                temp.sort()
-                temp = list(temp)
-                results[x].differences = temp[0:numE-1]
-            while len(results[x].differences) < numE:
-                results[x].differences.append(0.0)
+        if self.media == media or media == 3:
+            for x in self.control:
+                if x == group:
+                    numE += 1
+            for x in range(len(results)):
+                if len(results[x].differences) > numE:
+                    temp = array(results[x].differences)
+                    temp.sort()
+                    temp = list(temp)
+                    results[x].differences = temp[0:numE-1]
+                while len(results[x].differences) < numE:
+                    results[x].differences.append(0.0)
 
         return results,numE
 

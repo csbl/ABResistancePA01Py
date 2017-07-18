@@ -12,7 +12,7 @@ def creationOfEssentialReactData():
 
 
 
-#creationOfEssentialReactData()
+creationOfEssentialReactData()
 
 normal = ComparisionGene('IPAE1146','This is a test',type = 'React')
 
@@ -72,7 +72,7 @@ for z,m,sd in zip(data[1]["Name"].values,data[1]["Mean"].values,data[1]["Std"].v
     except:
         y.append(0.0)
 data[1].insert(len(data[1].columns.values),"PVal(cont)", y)
-i = 0;
+i = 0
 for x in data:
     x.to_csv(types[i]+'.txt',sep = " ",float_format="%.5f",index=False)
     i+=1

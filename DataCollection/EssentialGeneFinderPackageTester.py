@@ -1,89 +1,34 @@
 from EssentialGeneFinder import *
+import scipy.stats
 from pandas import DataFrame,Series
-from matplotlib import pyplot as plt
-import numpy
-import matplotlib
 
 
-
-def creationOfFVAData():
+def creationOfEssentialGeneData():
     assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
     nsamples = [12,12,6,9,6]
     model = cobra.io.read_sbml_model("iPAE1146.xml")
-    createEssentialReactionModel(model,'IPAE1146')
-    comp_res = cobra.flux_analysis.flux_variability_analysis(model)
-    comp_res.to_csv('FVAIPAE1146.csv')
+    createEssentialGeneModel(model,'IPAE1146')
+
     for i in range(len(assent)):
-        perform_fva(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
+        createEssentialGeneDataAssent(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
 
 
 
 
-#creationOfFVAData()
-model = cobra.io.read_sbml_model("iPAE1146.xml")
-assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
-reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
-nsamples = [12,12,6,9,6]
-mini = 0
-maxi = 2000
-n = 5
-compModelFVA =DataFrame.from_csv('FVA'+'IPAE1146'+'.csv')
-types = {1: 'ExperimentalFVA', 0: 'ControlFVA'}
-xbins = len(compModelFVA.index.values)
-lb = abs(min([x.lower_bound for x in model.reactions]))
-ub = abs(max([x.upper_bound for x in model.reactions]))
-ysize = lb + ub
-ybins = maxi-mini
-yblim = 900
-ytlim = 2000
-geneMap = Series(range(xbins),compModelFVA.index.values).to_dict()
-geneMapInv = Series(compModelFVA.index.values,range(xbins)).to_dict()
 
-FVARes = []
-for group in [0,1]:
-    #fig = plt.figure(figsize = (4,6),dpi = 100)
-    resultMat = numpy.zeros((xbins,ysize))
-    for i in range(len(assent)):
-        for j in [x+1 for x in range(nsamples[i])]:
-            if reference[assent[i]][j-1] == group:
-                data = DataFrame.from_csv('FVA'+assent[i]+'_'+str(j)+'.csv')
-                for index,row in data.iterrows():
-                    lb2 = row['minimum']
-                    ub2 = row['maximum']
-                    span = range(int(ub2)) + lb2
-                    for y in span:
-                        resultMat[geneMap[index],y+lb] += 1
-    resPlot = resultMat[:][mini:maxi]
-    plt.matshow(resPlot.transpose(),interpolation = 'none',cmap = 'hot')
-    plt.colorbar(fraction=0.046, pad=0.04)
-    plt.xticks(rotation = 45)
-    #plt.xticks(range(xbins),[geneMapInv[x] for x in range(xbins)])
-    plt.yticks(numpy.linspace(mini,maxi,n),[x-lb for x in numpy.linspace(mini,maxi,n)])
-    plt.ylim((yblim,ytlim))
-    plt.xlabel('Reaction')
-    plt.ylabel('Flux')
-    plt.title(types[group], y = 1.15)
-    FVARes.append(resultMat.transpose().copy())
-    plt.savefig(types[group]+'.png',bbox_inches='tight')
-diff = FVARes[0] - FVARes[1]
-diffSum =  sum(diff,axis = 0)
-change = Series(numpy.abs(diffSum),[geneMapInv[x] for x in range(xbins)])
-change.to_csv('FVADiff.csv')
+#creationOfEssentialGeneData()
 
-plt.show()
-
-"""
-normal = ComparisionGene('IPAE1146','This is a test',type = 'React')
+normal = ComparisionGene('IPAE1146','This is a test')
 
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
-
+referenceMed =  {'GSE90620':1,'GDS3572':0,'GSE65870':2,'GDS4244':1,'GSE30021':1}
+# PBM = 2
+# LB = 1
+# MH = 0
 CSD = []
 
-controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
-experimentalSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
-data = [controlSample,experimentalSample]
 for x in reference:
-    temp = CSGene(x,reference[x],type = 'React')
+    temp = CSGene(x,reference[x],referenceMed[x])
     temp.processSamples()
     CSD.append(temp)
 
@@ -91,49 +36,71 @@ results = []
 i=0
 sampleCount = [0,0]
 typeOfSample = [0,1]
+controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
+experimentalSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
+controlMedia = DataFrame()
+experimentalMedia = DataFrame()
+data = [controlSample,experimentalSample]
+mediaData = [controlMedia,experimentalMedia]
+media = ['MH','LB','PBM']
 for g in typeOfSample:
-    results = []
-    i = 0
-    j=0
-    sampleCount[g] = 0
-    for x in CSD:
-        temp,tempCount = x.findChangedFluxGenes(normal.getData(),g)
-        s = len(results)
-        if i==0:
-            results = temp[:]
-        else:
-            for y in temp:
-                count = 0
-                for z in range(s):
-                    if results[z].areEqual(y):
-                        results[z].combine(y)
-                        count += 1
-                        break
-                if count == 0:
-                    results = results + [y]
-        i+=1
-        sampleCount[g]+= tempCount
+    for m in [0,1,2,3]:
+        results = []
+        i = 0
+        j = 0
+        sampleCount[g] = 0
+        for x in CSD:
+            temp,tempCount = x.findChangedFluxGenes(normal.getData(),g,m)
+            s = len(results)
+            if i==0:
+                results = temp[:]
+            else:
+                for y in temp:
+                    count = 0
+                    for z in range(s):
+                        if results[z].areEqual(y):
+                            results[z].combine(y)
+                            count += 1
+                            break
+                    if count == 0:
+                        results = results + [y]
+            i+=1
+            sampleCount[g] += tempCount
 
-    types = {1: 'ExperimentalReact', 0: 'ControlReact'}
-    for x in results:
-        name,count,mean,std,sum,pval = x.letsPrint()
-        if( abs(mean) > .001 ):
-            data[g].loc[j] = [name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean]
-            j+=1
-    print data[g]
-    footer = 'Total Number of %s Samples = %d' % (types[g],sampleCount[g])
-    print footer
+        types = {1: 'Experimental', 0: 'Control'}
+        if not m == 3:
+            tempMediaDataFrame = DataFrame(columns = ['Name',media[m]+' Count',media[m] + ' Sum'])
+        for x in results:
+            name,count,mean,std,sum,pval = x.letsPrint()
+            if m == 3:
+                if( abs(mean) > .001 ):
+                    data[g].loc[j] = [name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean]
+                    j += 1
+            else:
+                if( abs(mean) > .001 ):
+                    tempMediaDataFrame.loc[j] = [name,count,sum]
+                    j += 1
+
+        if m == 3:
+            data[g] = data[g].merge(mediaData[g],on = 'Name')
+        elif m==0:
+            mediaData[g] = tempMediaDataFrame.copy()
+        elif not(tempMediaDataFrame.empty):
+            mediaData[g] = mediaData[g].merge(tempMediaDataFrame,on = 'Name')
+
 y = []
 for z,m,sd in zip(data[1]["Name"].values,data[1]["Mean"].values,data[1]["Std"].values):
     try:
         con = controlSample.loc[controlSample['Name'] == z]
-        y.append(t_testUnpaired_fromSum(m,sd**2,sampleCount[1],con['Mean'].values,con['Std'].values**2,sampleCount[0]))
+        y.append(t_testUnpaired_fromSum(m,sd**2,sampleCount[1],con["Mean"].values,con['Std'].values**2,sampleCount[0]))
     except:
         y.append(0.0)
-    print y
 data[1].insert(len(data[1].columns.values),"PVal(cont)", y)
-i = 0;
+i = 0
 for x in data:
+    print x
+    print sampleCount[i]
     x.to_csv(types[i]+'.txt',sep = " ",float_format="%.5f",index=False)
     i+=1
-"""
+
+
