@@ -7,12 +7,12 @@ def creationOfEssentialReactData():
     nsamples = [12,12,6,9,6]
     model = cobra.io.read_sbml_model("iPAE1146.xml")
     createEssentialReactionModel(model,'IPAE1146')
-    #for i in range(len(assent)):
-    #    createSingleReactionDeletionData(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
+    for i in range(len(assent)):
+        createSingleReactionDeletionData(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
 
 
 
-#creationOfEssentialReactData()
+creationOfEssentialReactData()
 
 normal = ComparisionGene('IPAE1146','This is a test',type = 'React')
 

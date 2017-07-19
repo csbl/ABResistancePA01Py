@@ -16,7 +16,7 @@ def creationOfEssentialGeneData():
 
 
 
-#creationOfEssentialGeneData()
+creationOfEssentialGeneData()
 
 normal = ComparisionGene('IPAE1146','This is a test')
 
