@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="added media conditions in for reaction deletion simulations">
+    <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/Control.txt" afterPath="$PROJECT_DIR$/DataCollection/Control.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/Experimental.txt" afterPath="$PROJECT_DIR$/DataCollection/Experimental.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/FVASimulation.py" afterPath="$PROJECT_DIR$/DataCollection/FVASimulation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/gurobi.log" afterPath="$PROJECT_DIR$/DataCollection/gurobi.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py" afterPath="$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" afterPath="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,81 +17,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="11" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EssGeneGDS3572.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
+      <file leaf-file-name="FVASimulation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataCollection/FVASimulation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="1000">
+              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EssGeneGDS4244.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EssGeneGSE65870.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EssGeneGSE90620.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EssGeneGSE30021.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControlReact.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/ControlReact.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="singleReactionDeletionSimulation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="singleReactionDeletionSimulation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="40" column="67" lean-forward="true" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+            <state relative-caret-position="1225">
+              <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,21 +53,9 @@
         <entry file="file://$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="520">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EssentialGeneFinder.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10960">
-              <caret line="29" column="27" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,8 +108,6 @@
         <option value="$PROJECT_DIR$/GEAnalysis/GEDataAnalysisPrelim.py" />
         <option value="$PROJECT_DIR$/TestingScripts/test.py" />
         <option value="$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py" />
-        <option value="$PROJECT_DIR$/DataCollection/FVASimulation.py" />
-        <option value="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" />
         <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" />
         <option value="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" />
         <option value="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" />
@@ -186,6 +116,8 @@
         <option value="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" />
         <option value="$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py" />
         <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
+        <option value="$PROJECT_DIR$/DataCollection/FVASimulation.py" />
+        <option value="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" />
       </list>
     </option>
   </component>
@@ -317,7 +249,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.EssentialGeneFinderPackageTester">
+  <component name="RunManager" selected="Python.FVASimulation">
     <configuration default="false" name="EssentialGeneFinderPackageTester" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -331,24 +263,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="GeneEssentialityPyPA01" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestingScripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="GeneEssentialityPyPA01" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestingScripts/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -403,6 +317,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="GeneEssentialityPyPA01" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="FVASimulation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataCollection" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GeneEssentialityPyPA01" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataCollection/FVASimulation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -490,18 +422,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test" />
-      <item index="2" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
-      <item index="3" class="java.lang.String" itemvalue="Python.singleGeneDeletionSimulation" />
-      <item index="4" class="java.lang.String" itemvalue="Python.singleReactionDeletionSimulation" />
+      <item index="1" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
+      <item index="2" class="java.lang.String" itemvalue="Python.singleGeneDeletionSimulation" />
+      <item index="3" class="java.lang.String" itemvalue="Python.singleReactionDeletionSimulation" />
+      <item index="4" class="java.lang.String" itemvalue="Python.FVASimulation" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
-        <item index="1" class="java.lang.String" itemvalue="Python.singleReactionDeletionSimulation" />
-        <item index="2" class="java.lang.String" itemvalue="Python.singleGeneDeletionSimulation" />
-        <item index="3" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.FVASimulation" />
+        <item index="1" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
+        <item index="2" class="java.lang.String" itemvalue="Python.singleReactionDeletionSimulation" />
+        <item index="3" class="java.lang.String" itemvalue="Python.singleGeneDeletionSimulation" />
+        <item index="4" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
       </list>
     </recent_temporary>
   </component>
@@ -768,7 +700,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500410749753</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fixed a few bugs. Still think there are problems">
+      <created>1500438370952</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1500438370952</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -842,7 +781,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tried to find bug. No luck, going back to previous version now" />
     <MESSAGE value="Found the bug. The preliminary essential gene variants that I found were only due to numerical round off errors that were found before I changed the threshold from .0 to .001. Now, I am changing the algorithim to find the genes that change that hit more than half of the biomass." />
     <MESSAGE value="Changed the file creation structure to include the flux for every reaction. Now to change algorithims to find what is different" />
     <MESSAGE value="added brach" />
@@ -867,7 +805,8 @@
     <MESSAGE value="fixed bugs in FVA figure creator" />
     <MESSAGE value="added functionality for looking at media conditions" />
     <MESSAGE value="added media conditions in for reaction deletion simulations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added media conditions in for reaction deletion simulations" />
+    <MESSAGE value="fixed a few bugs. Still think there are problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a few bugs. Still think there are problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1050,16 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/FVASimulation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2960">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/Experimental.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1086,38 +1015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/ControlReact.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1134,28 +1031,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py">
+    <entry file="file://$PROJECT_DIR$/DataCollection/ControlReact.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="40">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/FVASimulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py">
+    <entry file="file://$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="40" column="67" lean-forward="true" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="520">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
           <folding />
         </state>
       </provider>
