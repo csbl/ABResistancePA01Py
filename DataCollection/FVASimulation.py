@@ -19,7 +19,7 @@ def creationOfFVAData():
 
 
 
-creationOfFVAData()
+#creationOfFVAData()
 model = cobra.io.read_sbml_model("iPAE1146.xml")
 assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
@@ -53,6 +53,8 @@ for group in [0,1]:
                     span = range(int(ub2)) + lb2
                     for y in span:
                         resultMat[geneMap[index],y+lb] += 1
+    #topHits = numpy.equal(resultMat,[x + numpy.max(max(resultMat)) for x in numpy.zeros(xbins,ysize)])
+   # print topHits #TODO FIND TOP RANGES FOR COMPARISION
     resPlot = resultMat[:][mini:maxi]
     plt.matshow(resPlot.transpose(),interpolation = 'none',cmap = 'hot')
     plt.colorbar(fraction=0.046, pad=0.04)
@@ -69,6 +71,7 @@ diff = FVARes[0] - FVARes[1]
 diffSum =  sum(diff,axis = 0)
 change = Series(numpy.abs(diffSum),[geneMapInv[x] for x in range(xbins)])
 change.to_csv('FVADiff.csv')
+
 
 plt.show()
 
