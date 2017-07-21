@@ -38,7 +38,7 @@ yblim = 900
 ytlim = 2000
 geneMap = Series(range(xbins),compModelFVA.index.values).to_dict()
 geneMapInv = Series(compModelFVA.index.values,range(xbins)).to_dict()
-
+topHits = dict()
 FVARes = []
 for group in [0,1]:
     #fig = plt.figure(figsize = (4,6),dpi = 100)
@@ -53,8 +53,17 @@ for group in [0,1]:
                     span = range(int(ub2)) + lb2
                     for y in span:
                         resultMat[geneMap[index],y+lb] += 1
-    #topHits = numpy.equal(resultMat,[x + numpy.max(max(resultMat)) for x in numpy.zeros(xbins,ysize)])
-   # print topHits #TODO FIND TOP RANGES FOR COMPARISION
+    topHits[types[group]] = numpy.equal(resultMat,numpy.max(numpy.max(resultMat))).astype(int)
+    resHits = topHits[types[group]][mini:maxi]
+    plt.matshow(resHits.transpose(),interpolation = 'none',cmap = 'hot')
+    plt.colorbar(fraction=0.046, pad=0.04)
+    plt.xticks(rotation = 45)
+    #plt.xticks(range(xbins),[geneMapInv[x] for x in range(xbins)])
+    plt.yticks(numpy.linspace(mini,maxi,n),[x-lb for x in numpy.linspace(mini,maxi,n)])
+    plt.ylim((yblim,ytlim))
+    plt.xlabel('Reaction')
+    plt.ylabel('Flux')
+    plt.title(types[group]+'Top Hits', y = 1.15)
     resPlot = resultMat[:][mini:maxi]
     plt.matshow(resPlot.transpose(),interpolation = 'none',cmap = 'hot')
     plt.colorbar(fraction=0.046, pad=0.04)
@@ -72,6 +81,7 @@ diffSum =  sum(diff,axis = 0)
 change = Series(numpy.abs(diffSum),[geneMapInv[x] for x in range(xbins)])
 change.to_csv('FVADiff.csv')
 
-
+change = Series(sum(numpy.abs(numpy.subtract(topHits[types[0]],topHits[types[1]])),axis= 1),[geneMapInv[x] for x in range(xbins)])
+change.to_csv('FVADiffTopHits.csv')
 plt.show()
 
