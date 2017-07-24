@@ -19,7 +19,7 @@ def creationOfFVAData():
 
 
 
-creationOfFVAData()
+#creationOfFVAData()
 model = cobra.io.read_sbml_model("iPAE1146.xml")
 assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
@@ -76,7 +76,8 @@ for group in [0,1]:
     plt.title(types[group], y = 1.15)
     FVARes.append(resultMat.transpose().copy())
     plt.savefig(types[group]+'.png',bbox_inches='tight')
-diff = FVARes[0] - FVARes[1]
+diff = abs(FVARes[0] - FVARes[1])
+print numpy.shape(diff)
 diffSum =  sum(diff,axis = 0)
 change = Series(numpy.abs(diffSum),[geneMapInv[x] for x in range(xbins)])
 change.to_csv('FVADiff.csv')
@@ -84,4 +85,36 @@ change.to_csv('FVADiff.csv')
 change = Series(sum(numpy.abs(numpy.subtract(topHits[types[0]],topHits[types[1]])),axis= 1),[geneMapInv[x] for x in range(xbins)])
 change.to_csv('FVADiffTopHits.csv')
 plt.show()
+change = DataFrame(sum(numpy.abs(numpy.subtract(topHits[types[0]],topHits[types[1]])),axis= 1),index = [geneMapInv[x] for x in range(xbins)], columns = ['DiffFlux'])
+change = change.query('DiffFlux > 0')
+print change
+rxns = [geneMap[x] for x in change.index.values]
+lbounds = [[],[]]
+ubounds = [[],[]]
+
+
+for y in [0, 1]:
+    for x in rxns:
+        flag = 0
+        for z in range(2000):
+            if( not (topHits[types[y]][x,z] == 0) and flag == 0):
+                lbounds[y].append(z- lb)
+                flag += 1
+            if (topHits[types[y]][x,z] == 0 and flag == 1):
+                ubounds[y].append(z-lb - 1)
+                flag += 1
+            if z == 1999 and flag == 1:
+                ubounds[y].append(1000)
+            if z == 1999 and flag == 0:
+                lbounds[y].append(0)
+                ubounds[y].append(0)
+
+change.insert(len(change.columns.values),'lboundC',value = Series(lbounds[0],index = [geneMapInv[x] for x in rxns]))
+change.insert(len(change.columns.values),'uboundC',Series(ubounds[0],index = [geneMapInv[x] for x in rxns]))
+change.insert(len(change.columns.values),'lboundE',Series(lbounds[1],index = [geneMapInv[x] for x in rxns]))
+change.insert(len(change.columns.values),'uboundE',Series(ubounds[1],index = [geneMapInv[x] for x in rxns]))
+change.to_csv('FVATopHitsWFluxes.csv')
+
+
+
 
