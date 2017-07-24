@@ -8010,3 +8010,169 @@ Changed value of parameter Method to 0
    Prev: -1  Min: -1  Max: 4  Default: -1
 Changed value of parameter Presolve to 0
    Prev: -1  Min: -1  Max: 2  Default: -1
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:19:14
+
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmplxu5lu.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmptubrnu.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpqayowr.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpvxruan.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmp6m8kq4.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:30:12
+
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmphezqlj.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpevuhec.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpyfeyh9.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpwcmocy.lp
+Reading time = 0.01 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Read LP format model from file c:\users\ethans~1\appdata\local\temp\tmpdl3rv3.lp
+Reading time = 0.02 seconds
+: 1284 rows, 2992 columns, 13090 nonzeros
+Changed value of parameter Method to 0
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:34:48
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:36:32
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:52:09
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:57:52
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 15:59:53
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:01:28
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:01:59
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:03:10
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:04:32
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:06:10
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:09:40
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:10:16
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:11:08
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:15:48
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:20:08
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:20:59
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:24:12
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:28:00
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:39:39
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:48:28
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 16:55:16
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:04:39
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:05:17
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:13:53
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:14:41
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:19:55
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:26:41
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:29:08
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:31:33
+
+
+Gurobi 7.0.2 (win64, Python) logging started 07/24/17 17:33:53
+

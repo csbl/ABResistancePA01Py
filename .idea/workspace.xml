@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" afterPath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" afterPath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/FVASimulation.py" afterPath="$PROJECT_DIR$/DataCollection/FVASimulation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataCollection/gurobi.log" afterPath="$PROJECT_DIR$/DataCollection/gurobi.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EssentialGeneFinderPackageTester.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="42" column="53" lean-forward="false" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+            <state relative-caret-position="2000">
+              <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -34,7 +28,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FVASimulation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FVASimulation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataCollection/FVASimulation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="997">
@@ -133,8 +127,8 @@
         <option value="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" />
         <option value="$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py" />
         <option value="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" />
-        <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
         <option value="$PROJECT_DIR$/DataCollection/FVASimulation.py" />
+        <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" />
       </list>
     </option>
   </component>
@@ -266,7 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.FVASimulation">
+  <component name="RunManager" selected="Python.EssentialGeneFinderPackageTester">
     <configuration default="false" name="EssentialGeneFinderPackageTester" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -446,8 +440,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.FVASimulation" />
-        <item index="1" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
+        <item index="0" class="java.lang.String" itemvalue="Python.EssentialGeneFinderPackageTester" />
+        <item index="1" class="java.lang.String" itemvalue="Python.FVASimulation" />
         <item index="2" class="java.lang.String" itemvalue="Python.singleGeneDeletionSimulation" />
         <item index="3" class="java.lang.String" itemvalue="Python.singleReactionDeletionSimulation" />
         <item index="4" class="java.lang.String" itemvalue="Python.doubleDeletionWorkbook" />
@@ -759,7 +753,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500906434186</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added FVA fluxes to see change in pathway commonality">
+      <created>1500923917229</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1500923917229</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -792,7 +793,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20546874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.509375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23644252" sideWeight="0.490625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38286334" sideWeight="0.490625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -833,7 +834,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on creating a double deletion framework" />
     <MESSAGE value="multi threading is not working on the double deletions. Should look into. For now selecting 1 process seems to work." />
     <MESSAGE value="added functionality for testing both experimental groups for single deletions. Added statistical significance level for values. Got double deletion data created for the general model" />
     <MESSAGE value="added some documentation" />
@@ -858,7 +858,8 @@
     <MESSAGE value="=minimal updatae" />
     <MESSAGE value="finished FVA top hit analysis and created csv file. Next steps:&#10;re run all simulations with optimized models" />
     <MESSAGE value="updated things" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated things" />
+    <MESSAGE value="added FVA fluxes to see change in pathway commonality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added FVA fluxes to see change in pathway commonality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1121,20 +1122,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
+    <entry file="file://$PROJECT_DIR$/DataCollection/FVASimulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="42" column="53" lean-forward="false" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+        <state relative-caret-position="997">
+          <caret line="107" column="39" lean-forward="true" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollection/FVASimulation.py">
+    <entry file="file://$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="997">
-          <caret line="107" column="39" lean-forward="true" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
+        <state relative-caret-position="2000">
+          <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
