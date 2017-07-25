@@ -19,7 +19,7 @@ def creationOfFVAData():
 
 
 
-#creationOfFVAData()
+creationOfFVAData()
 model = cobra.io.read_sbml_model("iPAE1146.xml")
 assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
