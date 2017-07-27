@@ -19,7 +19,7 @@ def creationOfFVAData():
 
 
 
-creationOfFVAData()
+#creationOfFVAData()
 model = cobra.io.read_sbml_model("iPAE1146.xml")
 assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
@@ -50,10 +50,14 @@ for group in [0,1]:
                 for index,row in data.iterrows():
                     lb2 = row['minimum']
                     ub2 = row['maximum']
+                    if lb2 == 0 and ub2 == 0:
+                        resultMat[geneMap[index],lb] += 1
+                        print "we have something"
                     span = range(int(ub2)) + lb2
                     for y in span:
+                        #if y == 0 and len(span) == 1:
                         resultMat[geneMap[index],y+lb] += 1
-    topHits[types[group]] = numpy.equal(resultMat,numpy.max(numpy.max(resultMat))).astype(int)
+    topHits[types[group]] = numpy.greater(resultMat,.7*numpy.max(numpy.max(resultMat))).astype(int)
     resHits = topHits[types[group]][mini:maxi]
     plt.matshow(resHits.transpose(),interpolation = 'none',cmap = 'hot')
     plt.colorbar(fraction=0.046, pad=0.04)
