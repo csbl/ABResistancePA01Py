@@ -22,6 +22,31 @@ def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,a = .05):
     T = (y1-y2)/sqrt(s1/n1 + s2 / n2)
     v = ((s1/n1+s2/n2)**2)/(((s1/n1)**2)/(n1-1)+((s2/n2)**2)/(n2-1))
     return scipy.stats.t.sf(abs(T),v)[0]*2
+
+def consensousModelCreator(model,type,geneList = []):
+    if len(geneList) == 0:
+        geneListF = open(type+'Genes.txt','r')
+        geneList = geneListF.readlines()
+        geneList = [x[:-1] for x in geneList]
+        geneListF.close()
+    cobra.manipulation.delete_model_genes(model,geneList)
+    #cobra.manipulation.delete_model_genes(model,['PA4628'])
+
+    removedReactionsID = []
+    for x in model.reactions:
+        if x.bounds == (0,0):
+            removedReactionsID.append(x.id)
+    outputFile = open(type +'ReactionsKO.txt','w')
+    outputFile.write('ReactionID ReactionName')
+    [outputFile.write(x+'\n') for x in removedReactionsID]
+    outputFile.close()
+
+    #res = cobra.flux_analysis.single_gene_deletion(model)
+    #res.to_csv(type+'GeneDeletion.csv')
+    #res = cobra.flux_analysis.single_reaction_deletion(model)
+    #res.to_csv(type + 'RxnDeletion.csv')
+    res = cobra.flux_analysis.flux_variability_analysis(model,loopless = True)
+    res.to_csv(type + 'FVA.csv')
 """
 Creates Essential Gene Data for CS models. Saves the results as a text file named EssGeneACCESSIONNUMBER_SAMPLENUMBER.txt with the 
 deleted gene name in the first column and the flux through biomass on the second column
