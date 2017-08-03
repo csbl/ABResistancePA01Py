@@ -56,10 +56,10 @@ for x in orderOfDel:
     x0_old = len(x[0])
     x1_old =len(x[1])
 
-data = DataFrame.from_dict(results,orient='index')
-data = concat([data,DataFrame.from_dict(mapDel2Res,orient = 'index')],axis = 1)
-data.to_csv('sensitivityResults.csv')#output sensitivity results. First column is the number of unique reaction removals. Second is the number of FVA differences
-print data
+#data = DataFrame.from_dict(results,orient='index')
+#data = concat([data,DataFrame.from_dict(mapDel2Res,orient = 'index')],axis = 1)
+#data.to_csv('sensitivityResults.csv')#output sensitivity results. First column is the number of unique reaction removals. Second is the number of FVA differences
+#print data
 
 
 

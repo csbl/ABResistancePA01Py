@@ -40,7 +40,7 @@ def consensusModelCreator(model,type,geneList = [1]):
         if x.bounds == (0,0):
             removedReactionsID.append(x.id) #tabulate removed reactions
     outputFile = open(type +'ReactionsKO.txt','w')
-    outputFile.write('ReactionID ReactionName')
+    outputFile.write('ReactionID\n')
     print removedReactionsID
     [outputFile.write(x+'\n') for x in removedReactionsID]
     outputFile.close()
@@ -50,8 +50,8 @@ def consensusModelCreator(model,type,geneList = [1]):
     res = cobra.flux_analysis.single_reaction_deletion(model)#perform single reaction deletion
     res.to_csv(type + 'RxnDeletion.csv')
     print "done"
-    res = cobra.flux_analysis.flux_variability_analysis(model,loopless = True)#perform FVA
-    res.to_csv(type + 'FVA.csv')
+    #res = cobra.flux_analysis.flux_variability_analysis(model,loopless = True)#perform FVA
+    #res.to_csv(type + 'FVA.csv')
 """Finds deleted reactions that are shared across all media conditions for the control and resistant groups
 """
 def creationOfDeletedReaction():

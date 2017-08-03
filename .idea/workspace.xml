@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/OldScripts/GEOParsetest" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/iPAE1146.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/iPAU1129.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/Control.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/Control.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS3572.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/EssGeneGDS3572.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGDS4244.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/EssGeneGDS4244.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE30021.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/EssGeneGSE30021.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE65870.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/EssGeneGSE65870.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssGeneGSE90620.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/EssGeneGSE90620.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssGeneIPAE1146.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/EssGeneIPAE1146.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/EssentialGeneFinderPackageTester.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/DeletedReactions.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/Experimental.txt" afterPath="$PROJECT_DIR$/CSModelDataScripts/Experimental.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/FVASimulation.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/__init__.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/doubleDeletionWorkbook.py" afterPath="$PROJECT_DIR$/OldScripts/doubleDeletionWorkbook.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/gurobi.log" afterPath="$PROJECT_DIR$/CSModelDataScripts/gurobi.log" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/iPAE1146.xml" afterPath="$PROJECT_DIR$/CSModelDataScripts/iPAE1146.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/singleGeneDeletionSimulation.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataCollection/singleReactionDeletionSimulation.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GEAnalysis/GEDataAnalysisPrelim.py" afterPath="$PROJECT_DIR$/OldScripts/GEAnalysis/GEDataAnalysisPrelim.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GEAnalysis/__init__.py" afterPath="$PROJECT_DIR$/OldScripts/GEAnalysis/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/OldScripts/GEOparseTest.py" afterPath="$PROJECT_DIR$/TestingScripts/GEOparseTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/ControlModel.py" afterPath="$PROJECT_DIR$/ConsensousModel/ControlModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" afterPath="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/ModelComparison.py" afterPath="$PROJECT_DIR$/ConsensousModel/ModelComparison.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/ResistantModel.py" afterPath="$PROJECT_DIR$/ConsensousModel/ResistantModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OldScripts/ExampleGeneFind.py" afterPath="$PROJECT_DIR$/OldScripts/ExampleGeneFind.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,41 +16,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="singleReactionDeletionSimulation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="singleGeneDeletionSimulation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FVASimulation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1880">
-              <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+            <state relative-caret-position="1082">
+              <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ABResistanceAnalysis.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ABResistanceAnalysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7527">
-              <caret line="346" column="73" lean-forward="false" selection-start-line="346" selection-start-column="73" selection-end-line="346" selection-end-column="73" />
+            <state relative-caret-position="1480">
+              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneSensitivityAnalysis.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -149,14 +113,16 @@
         <option value="$PROJECT_DIR$/ConsensousModel/RUniqGenes.txt" />
         <option value="$PROJECT_DIR$/ConsensousModel/CUniqGenes.txt" />
         <option value="$PROJECT_DIR$/DataCollection/EssentialGeneFinder.py" />
-        <option value="$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py" />
         <option value="$PROJECT_DIR$/CSModelDataScripts/EssentialGeneFinder.py" />
         <option value="$PROJECT_DIR$/ConsensousModel/ControlModel.py" />
         <option value="$PROJECT_DIR$/ConsensousModel/ResistantModel.py" />
         <option value="$PROJECT_DIR$/CSModelDataScripts/DeletedReactions.py" />
         <option value="$PROJECT_DIR$/ConsensousModel/ModelComparison.py" />
-        <option value="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" />
+        <option value="$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py" />
+        <option value="$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py" />
+        <option value="$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py" />
         <option value="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" />
+        <option value="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" />
       </list>
     </option>
   </component>
@@ -182,8 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -226,6 +190,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,13 +424,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1496929476462</updated>
-    </task>
-    <task id="LOCAL-00001" summary="working">
-      <created>1497474202654</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1497474202654</updated>
     </task>
     <task id="LOCAL-00002" summary="working">
       <created>1497534058908</created>
@@ -795,7 +754,21 @@
       <option name="project" value="LOCAL" />
       <updated>1501276988846</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="added documentation">
+      <created>1501773794012</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1501773794012</updated>
+    </task>
+    <task id="LOCAL-00050" summary="added more documentation.">
+      <created>1501775799211</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1501775799212</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -828,7 +801,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19244792" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.509375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38286334" sideWeight="0.490625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18221258" sideWeight="0.490625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -869,8 +842,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated. Hopefully can pusdh" />
-    <MESSAGE value="finalized singleGene deletion experiments. Now in file singleGeneDeletionSimulation.&#10;Now to start on reaction deletions." />
     <MESSAGE value="single Reaction deletion simulation is performed. Data analzed" />
     <MESSAGE value="updated. Tomorrow need to go into literature" />
     <MESSAGE value="need to decide on statistic. Created dataframes for my results." />
@@ -894,7 +865,9 @@
     <MESSAGE value="created conseous modesl and performed simulations" />
     <MESSAGE value="added loopless" />
     <MESSAGE value="created program to explore gene sensitivity" />
-    <option name="LAST_COMMIT_MESSAGE" value="created program to explore gene sensitivity" />
+    <MESSAGE value="added documentation" />
+    <MESSAGE value="added more documentation." />
+    <option name="LAST_COMMIT_MESSAGE" value="added more documentation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1104,7 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1112,9 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,7 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,7 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1920">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,7 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,7 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,9 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="5" column="47" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1180,9 +1140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding>
-            <element signature="e#1#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,9 +1147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="5" column="84" lean-forward="false" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1200,35 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3040">
           <caret line="76" column="78" lean-forward="false" selection-start-line="76" selection-start-column="78" selection-end-line="76" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1236,24 +1161,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3920">
+          <caret line="100" column="29" lean-forward="false" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="97" column="15" lean-forward="false" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1880">
-          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+        <state relative-caret-position="1082">
+          <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7527">
-          <caret line="346" column="73" lean-forward="false" selection-start-line="346" selection-start-column="73" selection-end-line="346" selection-end-column="73" />
+        <state relative-caret-position="1480">
+          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding />
         </state>
       </provider>
