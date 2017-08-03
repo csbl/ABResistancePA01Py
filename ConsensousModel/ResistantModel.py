@@ -1,11 +1,10 @@
 
 import cobra.manipulation
-import DataCollection.EssentialGeneFinder
+import CSModelDataScripts.ABResistanceAnalysis
 
+"""Script for creating resistant consensous models using the consensousModelCreator function in the ABResistanceAnalysis package"""
 type = 'Resistant'
 model = cobra.io.read_sbml_model("iPAE1146.xml")
-DataCollection.EssentialGeneFinder.consensousModelCreator(model,type)
+CSModelDataScripts.ABResistanceAnalysis.consensusModelCreator(model, type)
 
 
-#res = cobra.flux_analysis.single_gene_deletion(model)
-#res.to_csv(type+'GeneDDWPA4628')

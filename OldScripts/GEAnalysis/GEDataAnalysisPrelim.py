@@ -1,5 +1,5 @@
 import numpy
-from DataCollection import EssentialGeneFinder
+from CSModelDataScripts import ABResistanceAnalysis
 import pandas
 class geneHits:
     def __init__(self , name):
@@ -43,7 +43,7 @@ uniqueData = []
 for x in data:
     tempData = []
     for g in x:
-        if EssentialGeneFinder.binary_search(normalData,g) == -1:
+        if ABResistanceAnalysis.binary_search(normalData, g) == -1:
             tempData.append(g)
     uniqueData.append(tempData)
 

@@ -1,5 +1,5 @@
 import cobra.io
-from DataCollection.EssentialGeneFinder import *
+from CSModelDataScripts.ABResistanceAnalysis import *
 
 
 assent = 'GSE90620_'

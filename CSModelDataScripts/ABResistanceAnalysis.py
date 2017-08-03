@@ -10,43 +10,95 @@ import cobra.manipulation
 from copy import deepcopy
 import scipy.stats
 
-######Essential Gene Discovery Functions#########
+######Essential Utility Functions#########
 def binary_search(a, x, lo=0, hi=None):  # can't use a to specify default for hi
     hi = hi if hi is not None else len(a)  # hi defaults to len(a)
     pos = bisect_left(a, x, lo, hi)  # find insertion position
     return (pos if pos != hi and a[pos] == x else -1)  # don't walk off the end  #https://stackoverflow.com/questions/212358/binary-search-bisection-in-python
-
-def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,a = .05):
+"""Find the 2 side pvalue for a 2 sample ttest with unequal variances given the means (y1,y2), number of samples (n1,n2), and variances (s1,s2)"""
+def t_testUnpaired_fromSum(y1,s1,n1,y2,s2=-1,n2= -1,):
     if s2 == -1: s2 = s1
     if n2 == -1: n2 = n1
     T = (y1-y2)/sqrt(s1/n1 + s2 / n2)
     v = ((s1/n1+s2/n2)**2)/(((s1/n1)**2)/(n1-1)+((s2/n2)**2)/(n2-1))
     return scipy.stats.t.sf(abs(T),v)[0]*2
-
-def consensousModelCreator(model,type,geneList = []):
-    if len(geneList) == 0:
+#####Simulation and Analysis Function for Context Specific Models###########
+"""Creates consensus model by deleting gene list prescribed in geneList, or in typeGenes.txt which must be created. 
+ The model is optimized using FBA, the removed reactions are tabulated, single gene and reaction deletion simulations are performed,
+as well as FVA. The results are all saved in text or csv files which are analyzed in the ModelComparison.py file. """
+def consensusModelCreator(model,type,geneList = [1]):
+    if geneList[0] == 1:
         geneListF = open(type+'Genes.txt','r')
         geneList = geneListF.readlines()
         geneList = [x[:-1] for x in geneList]
         geneListF.close()
-    cobra.manipulation.delete_model_genes(model,geneList)
-    #cobra.manipulation.delete_model_genes(model,['PA4628'])
+    cobra.manipulation.delete_model_genes(model,geneList)#create consensus model
+    model.optimize()# peform FBA
 
     removedReactionsID = []
     for x in model.reactions:
         if x.bounds == (0,0):
-            removedReactionsID.append(x.id)
+            removedReactionsID.append(x.id) #tabulate removed reactions
     outputFile = open(type +'ReactionsKO.txt','w')
     outputFile.write('ReactionID ReactionName')
+    print removedReactionsID
     [outputFile.write(x+'\n') for x in removedReactionsID]
     outputFile.close()
 
-    #res = cobra.flux_analysis.single_gene_deletion(model)
-    #res.to_csv(type+'GeneDeletion.csv')
-    #res = cobra.flux_analysis.single_reaction_deletion(model)
-    #res.to_csv(type + 'RxnDeletion.csv')
-    res = cobra.flux_analysis.flux_variability_analysis(model,loopless = True)
+    res = cobra.flux_analysis.single_gene_deletion(model)#perform single gene deletion
+    res.to_csv(type+'GeneDeletion.csv')
+    res = cobra.flux_analysis.single_reaction_deletion(model)#perform single reaction deletion
+    res.to_csv(type + 'RxnDeletion.csv')
+    print "done"
+    res = cobra.flux_analysis.flux_variability_analysis(model,loopless = True)#perform FVA
     res.to_csv(type + 'FVA.csv')
+"""Finds deleted reactions that are shared across all media conditions for the control and resistant groups
+"""
+def creationOfDeletedReaction():
+    assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
+    reference = {'GSE90620': [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'GDS3572': [1, 1, 1, 0, 0, 0],
+                 'GSE65870': [1, 1, 1, 1, 1, 1], 'GDS4244': [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
+                 'GSE30021': [0, 0, 0, 0, 0, 0, 1, 1, 1]}
+    referenceMed = {'GSE90620': 1, 'GDS3572': 0, 'GSE65870': 2, 'GDS4244': 1, 'GSE30021': 1}#media code: 1=LB, 2=PBM,0 = MH
+    nsamples = [12,12,6,9,6]
+    deletions = [[set(),set()],[set(),set(),set()]]
+    model = cobra.io.read_sbml_model("iPAE1146.xml")
+    for i in range(len(assent)):#iterate through each sample
+        res = findDeletedReactions(assent[i],model,nsamples[i],reference[assent[i]],'gurobi','C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')#find deleted reactions for the sample set
+        if not len(res[0]) == 0 : deletions[0][referenceMed[assent[i]]] = deletions[0][referenceMed[assent[i]]].union(res[0])#add on unique values to control
+        else: print "None found in control: %d" % i
+        if not len(res[1]) == 0 : deletions[1][referenceMed[assent[i]]] = deletions[1][referenceMed[assent[i]]].union(res[1])#add on unique values to experimental
+        else: print "None found in exp: %d" % i
+
+    return [deletions[0][1] & deletions[0][1],deletions[1][0] & deletions[1][1] & deletions[1][2]] #find shared deletions within group media conditions
+"""Finds the removed reactions for a given sample set specified by the accession number, number of samples, and control list 
+(0 = control, 1 = experimental)"""
+def findDeletedReactions(assent,CSmodel,numSamples,control,solver = 'gurobi',path= None):
+    reactKOs = [set(), set()]
+    for x in [z + 1 for z in range(numSamples)]:
+        tempModel = CSmodel.copy()#create copy of model
+        fileName = join(path, assent + '_' + str(x) + '.txt')
+        statesFile = open(fileName, 'r')
+        geneStates = statesFile.readlines()
+        geneStates = [y.split(" ") for y in geneStates]#get gene states
+        geneNames = []
+        for y in geneStates:
+            if int(y[1]) == 0: #find "off" genes
+                geneNames.append(y[0])
+        tempModel.solver = solver  # change solver
+        if not (len(geneNames) == 0):
+            cobra.manipulation.delete_model_genes(tempModel, geneNames)# create CS model
+            temp = set()
+            for r in tempModel.reactions: #find removed reactions
+                if r.bounds == (0,0):
+                    temp.add(r.id)
+            if len(reactKOs[control[x-1]]) == 0:#add on removed reactions
+               reactKOs[control[x-1]] = temp.copy()
+            else:
+               reactKOs[control[x-1]] |= temp.copy()#make union of sets
+
+    return reactKOs
+
 """
 Creates Essential Gene Data for CS models. Saves the results as a text file named EssGeneACCESSIONNUMBER_SAMPLENUMBER.txt with the 
 deleted gene name in the first column and the flux through biomass on the second column
@@ -76,7 +128,6 @@ def createEssentialGeneDataAssent(assent,CSmodel,numSamples =1 ,path=None,solver
         tempModel.solver = solver  # load model
         if not(len(geneNames) == 0):
             cobra.manipulation.delete_model_genes(tempModel,geneNames)
-        #cobra.manipulation.delete_model_genes(tempModel,'PA5097')
         res = cobra.flux_analysis.single_gene_deletion(tempModel)  # perform single gene deletion simulation
         res.sort_index()  # sort the results of the simulation
         results = []
@@ -88,7 +139,7 @@ def createEssentialGeneDataAssent(assent,CSmodel,numSamples =1 ,path=None,solver
 
     newFile.write('\n-----------------------\n')  # write final marker
     newFile.close()
-
+"""Same as above but with reaction deletions"""
 def createSingleReactionDeletionData(assent,model,numSamples=1,path=None,solver = 'gurobi'):
     newFile = open(('EssReact' + assent + '.txt'), 'w')
     for x in [x + 1 for x in range(numSamples)]:
@@ -104,7 +155,6 @@ def createSingleReactionDeletionData(assent,model,numSamples=1,path=None,solver 
         CSmodel.solver = solver  # load model
         if not (len(geneNames) == 0):
             cobra.manipulation.delete_model_genes(CSmodel, geneNames)
-        # cobra.manipulation.delete_model_genes(CSmodel,'PA5097')
         res = cobra.flux_analysis.single_reaction_deletion(CSmodel)  # perform single gene deletion simulation
         res.sort_index()  # sort the results of the simulation
         results = []
@@ -116,7 +166,7 @@ def createSingleReactionDeletionData(assent,model,numSamples=1,path=None,solver 
 
     newFile.write('\n-----------------------\n')  # write final marker
     newFile.close()
-
+"""Performs loopless FVA analysis of sample set. Uses the gene states given by accession#_sample#.txt to create CS model then perofrms analysis"""
 def perform_fva(assent,model,numSamples=1,path = None,solver= 'gurobi'):
     totalFVARes = []
     for x in [x + 1 for x in range(numSamples)]:
@@ -132,47 +182,17 @@ def perform_fva(assent,model,numSamples=1,path = None,solver= 'gurobi'):
         CSmodel.solver = solver  # load model
         if not (len(geneNames) == 0):
             cobra.manipulation.delete_model_genes(CSmodel, geneNames)
-        # cobra.manipulation.delete_model_genes(CSmodel,'PA5097')
         res = cobra.flux_analysis.flux_variability_analysis(CSmodel,loopless=True)  # perform single gene deletion simulation
           # gather geneName,flux tuples
         res.to_csv('FVA'+assent+'_'+str(x)+'.csv')
-        #totalFVARes.append(res)
         statesFile.close()
     return totalFVARes
-"""
-No longer functional. Original Purpose is to find the number of changed genes given a set of unique genes. Not compatable with flux variatios=ns
-def findNumberofHits(uniqueData):
-    pings = []
-    for x in uniqueData:
-        for r in x:
-            for g in x[r]:
-                count = 0
-                if len(pings) == 0:
-                    pings = [GeneHits(g)]
-                else:
-                    for j in pings:
-                        if j.name == g:
-                            count = count + 1
-                    if count == 0:
-                        pings.append(GeneHits(g))
-                    else:
-                        for j in pings:
-                            if j.name == g:
-                                j.addToCount()
-    return pings
 
 """
-
-
-"""
-Function that calculates the results of a single deletion simulation for a cobra model. Creates a text file in the same format as above.
-Inputs: model - cobra model for which the simulation should be performed
-label - label for the resulting file output i.e. EssGeneLABEL.txt
-solver - solver for use in simulation default is gurobi
+Same as above for singel gene and reaction deletions but uses direct model input instead of creating within the function
 """
 def createEssentialGeneModel(model,label,solver = 'gurobi'):
     model.solver = solver
-    #cobra.manipulation.delete_model_genes(model,'PA5097')
     res = cobra.flux_analysis.single_gene_deletion(model)#perform simulation
     newFile = open(('EssGene' + label + '.txt'), 'w')
     res.sort_index()
@@ -196,14 +216,6 @@ def createEssentialReactionModel(model,label,solver= 'gurobi'):
     newFile.close()
 
 
-"""   
-def createEssentialGeneModelDD(model,label,type = 'smbl',solver = 'gurobi'):
-    model.solver = solver
-    res = cobra.flux_analysis.double_gene_deletion(model)
-    newFile = open(('EssGene'+label+'.txt'),'w')
-    res.sort_index()
-    results = []
-"""
 
     ##### Analysis Tools #########
 """   
@@ -236,9 +248,11 @@ class GeneHits:
 
 """
 Class for the characterization of essential genes for a general metabolic model. Processes the data in the EssGene file. 
-Data is acessible through the getData() function wher the genes and corresponding fluxes are stored as a dictionary
+Data is acessible through the getData() function where the genes and corresponding fluxes are stored as a dictionary. For
+use in comparision to CS models
 """
 class ComparisionGene:
+    """creates object that contains the results of a single gene or reaction deletion. Uses the label to find .txt file"""
     def __init__(self,label,information,type = 'Gene'):
         self.normalFile = open('Ess'+type+label+'.txt', 'r')
         self.normalData = self.normalFile.readlines()
@@ -258,11 +272,11 @@ class ComparisionGene:
         return self.normalData
 """
 #Class for comparision and analysis of essential gene data from a context specific model. Processes the flux levels in the text file
-. Allows for comparision of data from the file with a general model data. Can handle the control and experimental data
+. Allows for comparision of data from the file with a general model data. Can handle the control and experimental data as well as media conditons
 
 """
 class CSGene:
-    def __init__(self,accession,control,media = 1,information='NO INFORMATION',type = 'Gene'): #TODO remove default value for media
+    def __init__(self,accession,control,media =1,information='NO INFORMATION',type = 'Gene'):
         self.accession = accession
         self.information = information
         self.file = open('Ess'+type+self.accession+'.txt','r')
@@ -277,6 +291,7 @@ class CSGene:
         for x in range(len(self.dataTot)):
             self.dataTot[x] = self.dataTot[x][:-1] #remove eol characters
         self.file.close()
+    """Splits the name and flux, and separates based on experimental or control conditions"""
     def processSamples(self):
         self.sampleEG = [] #2d list for holding gene, flux
         tempData = []
@@ -308,34 +323,8 @@ class CSGene:
                 keysC.append(self.accession + '_' + str(i+1))
             else:
                 keysE.append(self.accession+'_'+str(i+1))
-        #totList =[]
-        #[totList.append(set(self.sampleEG[x])) for x in keysC]
-        #self.controlData = [list(x) for x in totList[:]]
-        #totList = list()
-        #[totList.append(set(self.sampleEG[x])) for x in keysE]
-        #self.experimentalData = [list(x) for x in totList[:]]
-        #self.controlData = [self.sampleEG[x] for x in keysC] #TODO need to handle all control or all experimental samples (index out of bounds)
-        #self.experimentalData = [self.sampleEG[x] for x in keysE]
-
-    """
-    def findUniqueFrom(self,geneTot):
-        uniqueGene = []
-        controlUnique = []
-        experimentalUnique = []
-        i = 0
-        for x in self.sampleEG:
-            unique = list(set(self.sampleEG[x])-set(geneTot))
-            uniqueGene.append([x,unique[:]])
-            if self.control[i] == 1:
-                controlUnique.append([x,unique[:]])
-            else:
-                experimentalUnique.append([x,unique[:]])
-            i+=1
-        totalUnique = {x[0]:x[1:][0] for x in uniqueGene}
-        controlUnique = {x[0]:x[1:][0] for x in controlUnique}
-        experimentalUnique = {x[0]:x[1:][0] for x in experimentalUnique}
-        return totalUnique,controlUnique,experimentalUnique
-    """
+    """find differences in name flux pairs to some other group (generalGene) and does so only with the group and media specified by group (1,0) or media (0,1,2).
+    If Media = 3 then it works irrespective of media conditions"""
     def findChangedFluxGenes(self,generalGene,group,media = 3):
         results = []
         data = self.sampleEG
@@ -343,19 +332,19 @@ class CSGene:
         for x in data:
             coeff = self.control[i]
             for y in data[x]:
-                if not(data[x][y] == generalGene[y]) and coeff == group and (self.media == media or media == 3) :
+                if not(data[x][y] == generalGene[y]) and coeff == group and (self.media == media or media == 3) :#make sure sample matches
                     if len(results) == 0:
                         results.append(GeneHits(data[x][y] - generalGene[y],y))
                     else:
                         count = 0
                         for z in results:
                             if z.name == y:
-                                z.combine(GeneHits((data[x][y] - generalGene[y]),y))
+                                z.combine(GeneHits((data[x][y] - generalGene[y]),y))#merge geneHist object
                                 count +=1
                         if count == 0:
                             results.append(GeneHits((data[x][y] - generalGene[y]),y))
             i +=1
-        numE = 0
+        numE = 0#pad results with 0 to represent 0 flux change in samples
         if self.media == media or media == 3:
             for x in self.control:
                 if x == group:
@@ -371,22 +360,6 @@ class CSGene:
 
         return results,numE
 
-
-    """
-    def findUniqueFromControl(self):
-        try:
-            totList = []
-            [totList.append(set(x)) for x in self.controlData]
-            totControl = list(set.intersection(*totList)) #find intersection of all genes for the control
-            totList = list()
-            [totList.append(set(x)) for x in self.experimentalData]
-            interExp = list(set.intersection(*totList)) #find genes that are common to all experimental sample essential genes
-            return list(set(interExp) - set(totControl)) #find members of the shared genes among the intersection that are not in the control genes
-        except :
-            print 'Error: You must run CSGene.processSamples() first'
-            return -1
-
-    """
 
 
 

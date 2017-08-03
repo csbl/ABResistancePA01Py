@@ -1,4 +1,4 @@
-from EssentialGeneFinder import *
+from ABResistanceAnalysis import *
 from pandas import DataFrame,Series
 from matplotlib import pyplot as plt
 import numpy
@@ -28,7 +28,7 @@ mini = 0
 maxi = 2000
 n = 5
 compModelFVA =DataFrame.from_csv('FVA'+'IPAE1146'+'.csv')
-types = {1: 'ExperimentalFVA', 0: 'ControlFVA'}
+types = {1: 'Experimental FVA', 0: 'Control FVA'}
 xbins = len(compModelFVA.index.values)
 lb = abs(min([x.lower_bound for x in model.reactions]))
 ub = abs(max([x.upper_bound for x in model.reactions]))
@@ -52,24 +52,31 @@ for group in [0,1]:
                     ub2 = row['maximum']
                     if lb2 == 0 and ub2 == 0:
                         resultMat[geneMap[index],lb] += 1
-                        print "we have something"
                     span = range(int(ub2)) + lb2
                     for y in span:
                         #if y == 0 and len(span) == 1:
                         resultMat[geneMap[index],y+lb] += 1
     topHits[types[group]] = numpy.greater(resultMat,.7*numpy.max(numpy.max(resultMat))).astype(int)
     resHits = topHits[types[group]][mini:maxi]
-    plt.matshow(resHits.transpose(),interpolation = 'none',cmap = 'hot')
-    plt.colorbar(fraction=0.046, pad=0.04)
+    plt.matshow(resHits.transpose(),interpolation = 'none',cmap = 'binary')
+    #plt.colorbar(fraction=0.046, pad=0.04)
     plt.xticks(rotation = 45)
     #plt.xticks(range(xbins),[geneMapInv[x] for x in range(xbins)])
+    plt.xticks()
+    plt.tick_params(
+        axis='x',  # changes apply to the x-axis
+        which='both',  # both major and minor ticks are affected
+        bottom='off',  # ticks along the bottom edge are off
+        top='off',  # ticks along the top edge are off
+        labeltop='off')  # labels along the bottom edge are off
     plt.yticks(numpy.linspace(mini,maxi,n),[x-lb for x in numpy.linspace(mini,maxi,n)])
-    plt.ylim((yblim,ytlim))
+    plt.ylim((yblim,1600))
     plt.xlabel('Reaction')
     plt.ylabel('Flux')
-    plt.title(types[group]+'Top Hits', y = 1.15)
+    plt.title(types[group]+' '+'Top Hits', y = 1.15)
+    plt.savefig(types[group]+'topHits'+'.png',bbox_inches='tight')
     resPlot = resultMat[:][mini:maxi]
-    plt.matshow(resPlot.transpose(),interpolation = 'none',cmap = 'hot')
+    plt.matshow(resPlot.transpose(),interpolation = 'none',cmap = 'binary')
     plt.colorbar(fraction=0.046, pad=0.04)
     plt.xticks(rotation = 45)
     #plt.xticks(range(xbins),[geneMapInv[x] for x in range(xbins)])

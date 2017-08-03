@@ -1,24 +1,20 @@
-from EssentialGeneFinder import *
-import scipy.stats
-from pandas import DataFrame,Series
+from ABResistanceAnalysis import *
+from pandas import DataFrame
 
 
-def creationOfEssentialGeneData():
+def creationOfEssentialReactData():
     assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
     nsamples = [12,12,6,9,6]
     model = cobra.io.read_sbml_model("iPAE1146.xml")
-    createEssentialGeneModel(model,'IPAE1146')
-
+    createEssentialReactionModel(model,'IPAE1146')
     for i in range(len(assent)):
-        createEssentialGeneDataAssent(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
+        createSingleReactionDeletionData(assent[i],model,nsamples[i],'C:\Users\Ethan Stancliffe\Desktop\Summer2017\Papin Lab\Pseudomonas Aeruginosa ABR Project\GeneEssentialityPA01')
 
 
 
+creationOfEssentialReactData()
 
-
-creationOfEssentialGeneData()
-
-normal = ComparisionGene('IPAE1146','This is a test')
+normal = ComparisionGene('IPAE1146','This is a test',type = 'React')
 
 reference = {'GSE90620':[0,0,0,1,1,1,1,1,1,1,1,1],'GDS3572':[1,1,1,0,0,0],'GSE65870':[1,1,1,1,1,1],'GDS4244':[0,0,0,0,0,0,1,1,1,1,1,1],'GSE30021':[0,0,0,0,0,0,1,1,1]}
 referenceMed =  {'GSE90620':1,'GDS3572':0,'GSE65870':2,'GDS4244':1,'GSE30021':1}
@@ -26,28 +22,28 @@ referenceMed =  {'GSE90620':1,'GDS3572':0,'GSE65870':2,'GDS4244':1,'GSE30021':1}
 # LB = 1
 # MH = 0
 CSD = []
-
 for x in reference:
-    temp = CSGene(x,reference[x],referenceMed[x])
+    temp = CSGene(x,reference[x],referenceMed[x],type = 'React')
     temp.processSamples()
     CSD.append(temp)
 
-results = []
-i=0
-sampleCount = [0,0]
-typeOfSample = [0,1]
+
 controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
 experimentalSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
+data = [controlSample,experimentalSample]
 controlMedia = DataFrame()
 experimentalMedia = DataFrame()
-data = [controlSample,experimentalSample]
 mediaData = [controlMedia,experimentalMedia]
 media = ['MH','LB','PBM']
+sampleCount = [0,0]
+typeOfSample = [0,1]
+results = []
+i=0
 for g in typeOfSample:
     for m in [0,1,2,3]:
         results = []
         i = 0
-        j = 0
+        j=0
         sampleCount[g] = 0
         for x in CSD:
             temp,tempCount = x.findChangedFluxGenes(normal.getData(),g,m)
@@ -65,11 +61,11 @@ for g in typeOfSample:
                     if count == 0:
                         results = results + [y]
             i+=1
-            sampleCount[g] += tempCount
+            sampleCount[g]+= tempCount
 
-        types = {1: 'Experimental', 0: 'Control'}
+        types = {1: 'ExperimentalReact', 0: 'ControlReact'}
         if not m == 3:
-            tempMediaDataFrame = DataFrame(columns = ['Name',media[m]+' Count',media[m] + ' Sum'])
+            tempMediaDataFrame = DataFrame(columns=['Name', media[m] + ' Count', media[m] + ' Sum'])
         for x in results:
             name,count,mean,std,sum,pval = x.letsPrint()
             if m == 3:
@@ -80,7 +76,6 @@ for g in typeOfSample:
                 if( abs(mean) > .001 ):
                     tempMediaDataFrame.loc[j] = [name,count,sum]
                     j += 1
-
         if m == 3:
             data[g] = data[g].merge(mediaData[g],on = 'Name')
         elif m==0:
@@ -92,7 +87,7 @@ y = []
 for z,m,sd in zip(data[1]["Name"].values,data[1]["Mean"].values,data[1]["Std"].values):
     try:
         con = controlSample.loc[controlSample['Name'] == z]
-        y.append(t_testUnpaired_fromSum(m,sd**2,sampleCount[1],con["Mean"].values,con['Std'].values**2,sampleCount[0]))
+        y.append(t_testUnpaired_fromSum(m,sd**2,sampleCount[1],con['Mean'].values,con['Std'].values**2,sampleCount[0]))
     except:
         y.append(0.0)
 data[1].insert(len(data[1].columns.values),"PVal(cont)", y)
@@ -102,3 +97,7 @@ for x in data:
     print sampleCount[i]
     x.to_csv(types[i]+'.txt',sep = " ",float_format="%.5f",index=False)
     i+=1
+
+
+
+
