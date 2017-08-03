@@ -1,6 +1,6 @@
 from ABResistanceAnalysis import *
 from pandas import DataFrame
-
+"Script for performing singleReactionDeletion simulations, and analyzing the results for differences between control and expirimental groups and media conditions"
 
 def creationOfEssentialReactData():
     assent = ['GSE90620','GDS4244','GDS3572','GSE30021','GSE65870']
@@ -12,7 +12,7 @@ def creationOfEssentialReactData():
 
 
 
-creationOfEssentialReactData()
+creationOfEssentialReactData()#create reaction deletion data (comment if already completed for models, very slow)
 
 normal = ComparisionGene('IPAE1146','This is a test',type = 'React')
 
@@ -22,13 +22,13 @@ referenceMed =  {'GSE90620':1,'GDS3572':0,'GSE65870':2,'GDS4244':1,'GSE30021':1}
 # LB = 1
 # MH = 0
 CSD = []
-for x in reference:
+for x in reference:#process data into CSGEne objects
     temp = CSGene(x,reference[x],referenceMed[x],type = 'React')
     temp.processSamples()
     CSD.append(temp)
 
 
-controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
+controlSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])#create dataframes
 experimentalSample = DataFrame(columns = ['Name', 'Count', 'Mean', 'Std', 'Sum', 'Pvalue', 'GEM_FBM', 'CS_FBM'])
 data = [controlSample,experimentalSample]
 controlMedia = DataFrame()
@@ -39,14 +39,14 @@ sampleCount = [0,0]
 typeOfSample = [0,1]
 results = []
 i=0
-for g in typeOfSample:
-    for m in [0,1,2,3]:
+for g in typeOfSample:#iterate through control or experimental
+    for m in [0,1,2,3]:#iterate through media conditions
         results = []
         i = 0
         j=0
         sampleCount[g] = 0
         for x in CSD:
-            temp,tempCount = x.findChangedFluxGenes(normal.getData(),g,m)
+            temp,tempCount = x.findChangedFluxGenes(normal.getData(),g,m) #compare to base GENRE
             s = len(results)
             if i==0:
                 results = temp[:]
@@ -54,7 +54,7 @@ for g in typeOfSample:
                 for y in temp:
                     count = 0
                     for z in range(s):
-                        if results[z].areEqual(y):
+                        if results[z].areEqual(y):#combine results for samples
                             results[z].combine(y)
                             count += 1
                             break
@@ -64,19 +64,21 @@ for g in typeOfSample:
             sampleCount[g]+= tempCount
 
         types = {1: 'ExperimentalReact', 0: 'ControlReact'}
+        #if looking a specific media
         if not m == 3:
             tempMediaDataFrame = DataFrame(columns=['Name', media[m] + ' Count', media[m] + ' Sum'])
         for x in results:
+            #get summary statistics
             name,count,mean,std,sum,pval = x.letsPrint()
             if m == 3:
-                if( abs(mean) > .001 ):
+                if( abs(mean) > .001 ):#report if significant differences
                     data[g].loc[j] = [name,count,mean,std,sum,pval,str(normal.getData()[x.name]),normal.getData()[x.name]+ mean]
                     j += 1
             else:
                 if( abs(mean) > .001 ):
                     tempMediaDataFrame.loc[j] = [name,count,sum]
                     j += 1
-        if m == 3:
+        if m == 3:#merge dataframes to filter for media dependency
             data[g] = data[g].merge(mediaData[g],on = 'Name')
         elif m==0:
             mediaData[g] = tempMediaDataFrame.copy()
@@ -84,6 +86,7 @@ for g in typeOfSample:
             mediaData[g] = mediaData[g].merge(tempMediaDataFrame,on = 'Name')
 
 y = []
+#complete dataframes with statistical comparision between groups
 for z,m,sd in zip(data[1]["Name"].values,data[1]["Mean"].values,data[1]["Std"].values):
     try:
         con = controlSample.loc[controlSample['Name'] == z]
@@ -92,6 +95,7 @@ for z,m,sd in zip(data[1]["Name"].values,data[1]["Mean"].values,data[1]["Std"].v
         y.append(0.0)
 data[1].insert(len(data[1].columns.values),"PVal(cont)", y)
 i = 0
+#output results
 for x in data:
     print x
     print sampleCount[i]
