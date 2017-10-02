@@ -19,7 +19,7 @@ def run():
     #find unique values
     cu = list(set(c) - set(r))
     ru = list(set(r) - set(c))
-    differences.append(len(cu) + len(ru))
+    differences.append([cu , ru])
 
     #output results
     file = open('uniqueDelRxnC.txt','w')
@@ -50,7 +50,7 @@ def run():
     [file.write(x[0] + ' ' + str(x[1]) + ' ' + str(x[2]) + '\n') for x in ru]
     file.close()
 
-    differences.append(len(cu))
+    differences.append([cu,ru])
 
     ###GeneDeletionSimulation###
     r = DataFrame.from_csv('resistantGeneDeletion.csv')
@@ -62,7 +62,7 @@ def run():
     #find unique values
     cu = cG - rG
     ru = rG - cG
-    differences.append(len(cu))
+    differences.append([cu,ru])
     #output result
     file = open('GDCompC.txt','w')
     file.write('GeneName Flux\n')
@@ -83,7 +83,7 @@ def run():
     cu = cR - rR
     ru = rR - cR
 
-    differences.append(len(cu))
+    differences.append([cu,ru])
 
     file = open('RDCompC.txt','w')
     file.write('RxnName Flux\n')
