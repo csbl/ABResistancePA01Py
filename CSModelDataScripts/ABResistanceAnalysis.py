@@ -32,6 +32,8 @@ def consensusModelCreator(model,type,geneList = [1]):
         geneList = geneListF.readlines()
         geneList = [x[:-1] for x in geneList]
         geneListF.close()
+        print "Making standard Model\n"
+    #print geneList
     cobra.manipulation.delete_model_genes(model,geneList)#create consensus model
     model.optimize()# peform FBA
 

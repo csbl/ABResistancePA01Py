@@ -10,12 +10,16 @@ model = cobra.io.read_sbml_model('iPAE1146.xml') #read base model
 
 
 type = 'Resistant'
-CSModelDataScripts.ABResistanceAnalysis.consensusModelCreator(model, type)
+CSModelDataScripts.ABResistanceAnalysis.consensusModelCreator(model.copy(), type)
 
 type = 'Control'
-CSModelDataScripts.ABResistanceAnalysis.consensusModelCreator(model, type)
+CSModelDataScripts.ABResistanceAnalysis.consensusModelCreator(model.copy(), type)
 
 baseline = ModelComparison.run()
+
+print baseline
+
+print "\n#######################################\n"
 
 #Load in gene lists
 geneListF = open('sharedGenes.txt', 'r')
@@ -33,7 +37,7 @@ model.solver = 'gurobi'#change solver (may be different depeneding on system. I 
 
 results = dict()
 orderOfDel = [[[x],[]] for x in geneListC] + [[[],[x]] for x in geneListR]#delete impactful genes sequentially
-#orderOfDel = [[[],[]]] #manualy specify genes to be activated
+orderOfDel = [[[],[]]] #manualy specify genes to be activated
 mapDel2Res = {x:y for x,y in zip(range(len(orderOfDel)),orderOfDel)} #creating indexing scheme for order of activation
 i = 0
 x1_old = 5
@@ -57,6 +61,7 @@ for x in orderOfDel:
         cc += 1
     #run comparision
     experiment = ModelComparison.run()
+    print experiment
     diffs = list()
 
     for e,b in zip(experiment,baseline):
@@ -67,11 +72,11 @@ for x in orderOfDel:
 
     i += 1
     x0_old = len(x[0])
-    x1_old =len(x[1])
+    x1_old = len(x[1])
 
 data = DataFrame.from_dict(results,orient='index')
 data = concat([data,DataFrame.from_dict(mapDel2Res,orient = 'index')],axis = 1)
-data.to_csv('sensitivityResultsFullData.csv')#output sensitivity results. First column is the number of unique reaction removals. Second is the number of FVA differences
+data.to_csv('sensitivityResultsFulData.csv')#output sensitivity results. First column is the number of unique reaction removals. Second is the number of FVA differences
 print data
 
 

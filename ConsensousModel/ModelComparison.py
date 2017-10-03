@@ -6,7 +6,7 @@ for unique reaction deletions, unique FVA results, and unique single gene and re
 def run():
     #Find unique removed reactions
     differences = []
-    file = open('resistantReactionsKO.txt','r')
+    file = open('ResistantReactionsKO.txt','r')
     r = file.readlines()
     r = [x[:-1] for x in r]
     file.close()
@@ -32,7 +32,7 @@ def run():
     file.close()
 
     ###FVA####
-    r = DataFrame.from_csv('resistantFVA.csv')
+    r = DataFrame.from_csv('ResistantFVA.csv')
     c = DataFrame.from_csv('ControlFVA.csv')
     rR = set()
     [rR.add((x, round(s, 1), round(l, 1))) for x, s, l in zip(r.index.values, r.minimum.values, r.maximum.values)]#gather results in tuple, rounding to first decimal place
@@ -53,7 +53,7 @@ def run():
     differences.append([cu,ru])
 
     ###GeneDeletionSimulation###
-    r = DataFrame.from_csv('resistantGeneDeletion.csv')
+    r = DataFrame.from_csv('ResistantGeneDeletion.csv')
     c = DataFrame.from_csv('ControlGeneDeletion.csv')
     rG = set()
     [rG.add((x,round(y,1))) for x,y in zip(r.index.values,r.flux.values)]#gather results
@@ -74,7 +74,7 @@ def run():
     file.close()
 
     ### RXN deletion ###
-    r = DataFrame.from_csv('resistantRxnDeletion.csv')#same structure as above
+    r = DataFrame.from_csv('ResistantRxnDeletion.csv')#same structure as above
     c = DataFrame.from_csv('ControlRxnDeletion.csv')
     rR = set()
     [rR.add((x,round(y,1))) for x,y in zip(r.index.values,r.flux.values)]
