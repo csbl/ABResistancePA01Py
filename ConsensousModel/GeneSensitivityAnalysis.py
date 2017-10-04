@@ -7,6 +7,7 @@ from pandas import DataFrame,concat
 """Script for creating, analyzing, and comparing consensus models for a resistant and control model. Also a sensitivity analysis can be performed by sequentially activating sets of genes
 The script relies on the ModelComparision and ABResistanceAnalysis files."""
 model = cobra.io.read_sbml_model('iPAE1146.xml') #read base model
+model.solver = 'gurobi'#change solver (may be different depeneding on system. I found gurobi to be the best with loopless FVA
 
 
 type = 'Resistant'
@@ -33,11 +34,10 @@ geneListC = [x[:-1] for x in geneListF.readlines()]
 geneListF.close()
 geneListCT = set(geneListShared + geneListC)
 geneListRT = set(geneListShared + geneListR)
-model.solver = 'gurobi'#change solver (may be different depeneding on system. I found gurobi to be the best with loopless FVA
 
 results = dict()
 orderOfDel = [[[x],[]] for x in geneListC] + [[[],[x]] for x in geneListR]#delete impactful genes sequentially
-orderOfDel = [[[],[]]] #manualy specify genes to be activated
+#orderOfDel = [[[],[]]] #manualy specify genes to be activated
 mapDel2Res = {x:y for x,y in zip(range(len(orderOfDel)),orderOfDel)} #creating indexing scheme for order of activation
 i = 0
 x1_old = 5
@@ -76,7 +76,9 @@ for x in orderOfDel:
 
 data = DataFrame.from_dict(results,orient='index')
 data = concat([data,DataFrame.from_dict(mapDel2Res,orient = 'index')],axis = 1)
-data.to_csv('sensitivityResultsFulData.csv')#output sensitivity results. First column is the number of unique reaction removals. Second is the number of FVA differences
+data.to_csv('sensitivityResultsFulData.csv')
+
+#output sensitivity results. First column is the number of unique reaction removals. Second is the number of FVA differences
 print data
 
 

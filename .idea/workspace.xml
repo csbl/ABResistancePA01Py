@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18594c40-dc3c-4296-b28d-a74cc7c0a0f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" afterPath="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" afterPath="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/ModelComparison.py" afterPath="$PROJECT_DIR$/ConsensousModel/ModelComparison.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py" afterPath="$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +19,7 @@
       <file leaf-file-name="FVASimulation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
+            <state relative-caret-position="4720">
               <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
               <folding />
             </state>
@@ -30,18 +29,18 @@
       <file leaf-file-name="ABResistanceAnalysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1240">
-              <caret line="54" column="90" lean-forward="true" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+            <state relative-caret-position="-4720">
+              <caret line="54" column="90" lean-forward="false" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneSensitivityAnalysis.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GeneSensitivityAnalysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2242">
-              <caret line="78" column="13" lean-forward="false" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+            <state relative-caret-position="3120">
+              <caret line="78" column="42" lean-forward="false" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -49,8 +48,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TESTsensitivityResultsFulData.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConsensousModel/TESTsensitivityResultsFulData.csv">
+      <file leaf-file-name="NumberOfDifferences.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConsensousModel/NumberOfDifferences.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sensitivityResultsFulData.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConsensousModel/sensitivityResultsFulData.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -79,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensitivityDataAnalysis.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SensitivityDataAnalysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="190">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,7 +101,7 @@
       <file leaf-file-name="ModelComparison.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConsensousModel/ModelComparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2800">
+            <state relative-caret-position="2840">
               <caret line="72" column="41" lean-forward="false" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
               <folding />
             </state>
@@ -173,10 +182,10 @@
         <option value="$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py" />
         <option value="$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py" />
         <option value="$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py" />
-        <option value="$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py" />
         <option value="$PROJECT_DIR$/ConsensousModel/ModelComparison.py" />
         <option value="$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py" />
         <option value="$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py" />
+        <option value="$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py" />
       </list>
     </option>
   </component>
@@ -202,6 +211,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,20 +234,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CSModelDataScripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneEssentialityPyPA01" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneEssentialityPyPA01" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ConsensousModel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -245,7 +241,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,7 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GeneSensitivityAnalysis (1)">
+  <component name="RunManager" selected="Python.SensitivityDataAnalysis">
     <configuration default="false" name="ResistantModel (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -492,8 +487,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.GeneSensitivityAnalysis (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.SensitivityDataAnalysis" />
+        <item index="0" class="java.lang.String" itemvalue="Python.SensitivityDataAnalysis" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GeneSensitivityAnalysis (1)" />
         <item index="2" class="java.lang.String" itemvalue="Python.FVASimulation" />
         <item index="3" class="java.lang.String" itemvalue="Python.ControlModel (1)" />
         <item index="4" class="java.lang.String" itemvalue="Python.ResistantModel (1)" />
@@ -510,13 +505,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1496929476462</updated>
-    </task>
-    <task id="LOCAL-00005" summary="FindUniqueFrom is now working, still working on getting findUnique from control">
-      <created>1497633376182</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1497633376182</updated>
     </task>
     <task id="LOCAL-00006" summary="Think basic package is developed, now to test">
       <created>1497642422420</created>
@@ -854,7 +842,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506990534909</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="think the bug is fixed, ready for run.">
+      <created>1507046153089</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1507046153089</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -928,7 +923,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added statistics to singleGeneDeletion" />
     <MESSAGE value="updataed a few things" />
     <MESSAGE value="finished reaction with p val. Now doing a FVA simulation" />
     <MESSAGE value="created FVA data and processed preliminary data with a few plots" />
@@ -953,27 +947,14 @@
     <MESSAGE value=" quick bug fix" />
     <MESSAGE value="updated sensitivity analysis script to find specific differences, not&#10;just numbers of differences." />
     <MESSAGE value="found bug, seems to be looking at same model." />
-    <option name="LAST_COMMIT_MESSAGE" value="found bug, seems to be looking at same model." />
+    <MESSAGE value="think the bug is fixed, ready for run." />
+    <option name="LAST_COMMIT_MESSAGE" value="think the bug is fixed, ready for run." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/ExperimentalReact.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/gurobi.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CSModelDataScripts/FVAIPAE1146.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1143,13 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3920">
-          <caret line="100" column="29" lean-forward="false" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleReactionDeletionSimulation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3840">
@@ -1175,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,7 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1191,7 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1199,7 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,7 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="9" column="4406" lean-forward="false" selection-start-line="9" selection-start-column="4406" selection-end-line="9" selection-end-column="4406" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,13 +1191,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CSModelDataScripts/FVASimulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
+        <state relative-caret-position="4720">
           <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
           <folding />
         </state>
@@ -1239,7 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="803">
           <caret line="42" column="6" lean-forward="true" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,7 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1263,7 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,16 +1241,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ConsensousModel/ModelComparison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2800">
+        <state relative-caret-position="2840">
           <caret line="72" column="41" lean-forward="false" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1299,21 +1255,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py">
+    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/singleGeneDeletionSimulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1240">
-          <caret line="54" column="90" lean-forward="true" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+        <state relative-caret-position="3920">
+          <caret line="100" column="29" lean-forward="false" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConsensousModel/GeneSensitivityAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2242">
-          <caret line="78" column="13" lean-forward="false" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+        <state relative-caret-position="3120">
+          <caret line="78" column="42" lean-forward="false" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsensousModel/sensitivityResultsFulData.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsensousModel/NumberOfDifferences.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSModelDataScripts/ABResistanceAnalysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4720">
+          <caret line="54" column="90" lean-forward="false" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsensousModel/SensitivityDataAnalysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
