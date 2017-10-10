@@ -56,7 +56,7 @@ for x in FVADat:
 
 uniqueChanged = list()
 temp = pandas.DataFrame(index=range(15),columns=['UniqueFVAReact bes','UniqueFVAReact ebs','UniqueFVAReact ber','UniqueFVAReact ebr'])
-
+CommonChanges = dict()
 for x,y in zip(changedRxns,range(15)):
     bes = list(set(x[0]) - set(x[1]))
     ebs = list(set(x[1]) - set(x[0]))
@@ -65,6 +65,15 @@ for x,y in zip(changedRxns,range(15)):
     uniqueChanged.append([bes,ebs,ber,ebr])
     temp.loc[y,:] = [len(z) for z in uniqueChanged[-1]]
 
+
+for x in uniqueChanged:
+    for y in x[1]:
+        if y in CommonChanges:
+            CommonChanges[y] += 1
+        else:
+            CommonChanges[y] = 1
+
+print CommonChanges
 total = pandas.concat([total, temp], axis=1)
 
 total.to_csv('NumberOfDifferences.csv')
